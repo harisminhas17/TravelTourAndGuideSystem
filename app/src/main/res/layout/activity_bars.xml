@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.BarsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Settings"
+            android:textColor="#054949"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/support" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:src="@drawable/bell" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/person" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Fullname" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Email" />
+
+    <View
+        android:id="@+id/view14"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Push Notifications" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Language" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Payment Method" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="verifications" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Account Privacy" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Reviews" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Logout" />
+
+</LinearLayout>

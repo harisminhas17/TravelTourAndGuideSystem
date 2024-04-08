@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- main_start strings -->
+
+    <string name="app_name">Travel Tour And Guide System</string>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="travel_tour___guide_system_android_app_string">Travel Tour &amp; Guide System Android App</string>
+    <string name="gs_string">MS</string>
+    <string name="_100__string">100%</string>
+    <string name="time_string">9:41 AM</string>
+</resources>

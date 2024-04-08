@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.SignupActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:adjustViewBounds="true"
+        android:alpha="0.5"
+        android:cropToPadding="true"
+        app:srcCompat="@drawable/womensplash" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/button_rounded_more"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Create Your Account"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Enter your details below to continue using the app"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/edit_text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/white_rounded"
+            android:ems="10"
+            android:hint="Enter Your Full Name"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edit_text_email_address2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/white_rounded"
+            android:ems="10"
+            android:hint="Enter Your Email Address"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edit_text_password2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/white_rounded"
+            android:ems="10"
+            android:hint="Enter Your Password"
+            android:inputType="textPassword"
+            android:padding="10dp" />
+
+        <View
+            android:id="@+id/view8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/submit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/green_btn_rounded"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingTop="20dp"
+            android:paddingRight="60dp"
+            android:paddingBottom="20dp"
+            android:text="Submit"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</LinearLayout>
