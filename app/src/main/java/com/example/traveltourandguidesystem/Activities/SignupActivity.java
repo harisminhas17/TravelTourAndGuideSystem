@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.traveltourandguidesystem.Helper.APIInterface;
 import com.example.traveltourandguidesystem.Helper.ApiClient;
-import com.example.traveltourandguidesystem.Helper.SharedPref;
 import com.example.traveltourandguidesystem.R;
 import com.google.gson.Gson;
 
@@ -24,11 +23,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignupActivity extends AppCompatActivity {
+    ProgressDialog progressDialog;
     TextView submit_btn;
     EditText edit_text_name;
     EditText edit_text_email_address2;
     EditText edit_text_password2;
-    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ٹریول ٹور اینڈ گائیڈ سسٹم</string>
+    <string name="ek_img_content">ایکسپورٹ کٹ امیج</string>
+    <string name="travel_tour___guide_system_android_app_string">ٹریول ٹور گائیڈ سسٹم اینڈرائیڈ ایپ</string>
+    <string name="gs_string">MS</string>
+    <string name="_100__string">"100% "</string>
+    <string name="time_string">صبح 9:41</string>
+    <string name="done">"ہو گیا "</string>
+    <string name="pkr">پی کے آر</string>
+    <string name="language">زبان</string>
+</resources>

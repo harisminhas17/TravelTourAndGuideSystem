@@ -1,161 +1,112 @@
 package com.example.traveltourandguidesystem.Activities;
 
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainerView;
 
-import com.example.traveltourandguidesystem.Adapters.PlacesAdapter;
-import com.example.traveltourandguidesystem.Helper.APIInterface;
-import com.example.traveltourandguidesystem.Helper.ApiClient;
-import com.example.traveltourandguidesystem.Models.PlacesModel;
+import com.example.traveltourandguidesystem.Fragments.AlbumsFragment;
+import com.example.traveltourandguidesystem.Fragments.HomeFragment;
+import com.example.traveltourandguidesystem.Fragments.MapFragment;
+import com.example.traveltourandguidesystem.Fragments.MenuFragment;
 import com.example.traveltourandguidesystem.R;
-import com.google.gson.Gson;
-
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView notify_btn;
-    ImageView profile_btn;
-    RecyclerView recyclerView_top;
-    RecyclerView recyclerView;
-    ArrayList <PlacesModel> placesModels=new ArrayList<>();
-    ProgressDialog progressDialog;
+    private Context context;
+    ImageView tv_main_loc;
+    ImageView tv_main_home;
+    ImageView tv_main_gallery;
+    ImageView tv_main_bar;
+    FragmentContainerView fragment_container;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-        recyclerView=findViewById(R.id.recyclerView);
-        recyclerView_top=findViewById(R.id.recyclerView_top);
-        profile_btn=findViewById(R.id.profile_btn);
-        profile_btn.setOnClickListener(new View.OnClickListener() {
+        context = MainActivity.this;
+        tv_main_bar = findViewById(R.id.tv_main_bar);
+        tv_main_gallery = findViewById(R.id.tv_main_gallery);
+        tv_main_loc = findViewById(R.id.tv_main_loc);
+        tv_main_home = findViewById(R.id.tv_main_home);
+        fragment_container = findViewById(R.id.fragment_container);
+
+        setFragmentContainer(new HomeFragment());
+        tv_main_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                tv_main_home.setImageDrawable(getResources().getDrawable(R.drawable.home));
+                tv_main_gallery.setImageDrawable(getResources().getDrawable(R.drawable.ic_albums_white));
+                tv_main_loc.setImageDrawable(getResources().getDrawable(R.drawable.ic_location_pin_white));
+                tv_main_bar.setImageDrawable(getResources().getDrawable(R.drawable.baseline_segment_24));
+
+                setFragmentContainer(new HomeFragment());
             }
         });
-        notify_btn=findViewById(R.id.notify_btn);
-        notify_btn.setOnClickListener(new View.OnClickListener() {
+        tv_main_gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,NotificationActivity.class));
+                tv_main_home.setImageDrawable(getResources().getDrawable(R.drawable.home_white));
+                tv_main_gallery.setImageDrawable(getResources().getDrawable(R.drawable.orange_photos));
+                tv_main_loc.setImageDrawable(getResources().getDrawable(R.drawable.ic_location_pin_white));
+                tv_main_bar.setImageDrawable(getResources().getDrawable(R.drawable.baseline_segment_24));
+                setFragmentContainer(new AlbumsFragment());
+
             }
         });
-        progressDialog=new ProgressDialog(MainActivity.this);
-        progressDialog.setCancelable(true);
-        ArrayList<String> mTitleDataList = new ArrayList();
-        mTitleDataList.add("All");
-        mTitleDataList.add("Popular");
-        mTitleDataList.add("Nearby");
-
-
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setSkimOver(true);
-        commonNavigator.setEnablePivotScroll(true);
-        commonNavigator.setEnabled(true);
-        commonNavigator.setAdjustMode(true);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
+        tv_main_loc.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public int getCount() {
-                return mTitleDataList == null ? 0 : mTitleDataList.size();
-            }
-
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.GRAY);
-                colorTransitionPagerTitleView.setSelectedColor(Color.BLACK);
-                colorTransitionPagerTitleView.setText(mTitleDataList.get(index));
-                colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        magicIndicator.onPageScrolled(index,0,0);
-                    }
-                });
-                return colorTransitionPagerTitleView;
-            }
-
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
-                return indicator;
+            public void onClick(View v) {
+                tv_main_home.setImageDrawable(getResources().getDrawable(R.drawable.home_white));
+                tv_main_gallery.setImageDrawable(getResources().getDrawable(R.drawable.ic_albums_white));
+                tv_main_loc.setImageDrawable(getResources().getDrawable(R.drawable.ic_location_pin_colored));
+                tv_main_bar.setImageDrawable(getResources().getDrawable(R.drawable.baseline_segment_24));
+                setFragmentContainer(new MapFragment());
             }
         });
-        magicIndicator.setNavigator(commonNavigator);
+        tv_main_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                setFragmentContainer(new MenuFragment());
+                tv_main_home.setImageDrawable(getResources().getDrawable(R.drawable.home_white));
+                tv_main_gallery.setImageDrawable(getResources().getDrawable(R.drawable.ic_albums_white));
+                tv_main_loc.setImageDrawable(getResources().getDrawable(R.drawable.ic_location_pin_white));
+                tv_main_bar.setImageDrawable(getResources().getDrawable(R.drawable.baseline_segment_orange_24));
+            }
+        });
+    }
+
+    private void setFragmentContainer(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment, "findThisFragment")
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        showAllPlaces();
-    }
-
-    private void showAllPlaces() {
-        progressDialog.setMessage("Please Wait...");
-        progressDialog.show();
-        ApiClient apiClient = new ApiClient();
-        Call<Object> responseCall = apiClient.getClient(MainActivity.this).create(APIInterface.class).showAllPlaces();
-        responseCall.enqueue(new Callback<Object>() {
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-                progressDialog.dismiss();
-                try {
-                    JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
-                    boolean error = jsonObject.getBoolean("error");
-                    if (!error){
-                        JSONArray records=jsonObject.getJSONArray("records");
-                        for (int i = 0; i < records.length() ; i++) {
-                            PlacesModel placesModel=new Gson().fromJson(records.get(i).toString(),PlacesModel.class);
-                            placesModels.add(placesModel);
-                        }
-                        PlacesAdapter placesAdapter=new PlacesAdapter(placesModels,MainActivity.this, false);
-                        recyclerView_top.setAdapter(placesAdapter);
-                        PlacesAdapter placesAdapter2=new PlacesAdapter(placesModels,MainActivity.this, true);
-                        recyclerView.setAdapter(placesAdapter2);
-
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Exit Alert")
+                .setMessage("Are you sure you want to Exit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
 
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable throwable) {
-                progressDialog.dismiss();
-                throwable.printStackTrace();
-            }
-        });
-
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
-
 
 
 }

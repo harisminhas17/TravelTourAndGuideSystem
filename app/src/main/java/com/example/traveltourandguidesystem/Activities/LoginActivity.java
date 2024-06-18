@@ -88,7 +88,9 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     } else {
                         Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
-                        new SharedPref().saveLoginData(LoginActivity.this, jsonObject.getJSONObject("user").getString("name"), email, password);
+                        String name = jsonObject.getJSONObject("user").getString("name");
+                        int id = jsonObject.getJSONObject("user").getInt("id");
+                        new SharedPref().saveLoginData(LoginActivity.this, name, email, password, id);
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
                     }

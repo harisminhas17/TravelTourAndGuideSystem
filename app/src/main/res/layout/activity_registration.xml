@@ -44,7 +44,7 @@
     <FrameLayout
         android:id="@+id/signup_btn"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/button_rounded">
@@ -58,7 +58,7 @@
             android:textColor="@color/white"
             android:gravity="center"
             android:layout_gravity="center"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
     </FrameLayout>
 
@@ -71,7 +71,7 @@
     <FrameLayout
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/button_rounded">
@@ -84,7 +84,7 @@
             android:gravity="center"
             android:text="Login"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
     </FrameLayout>
 

@@ -1,0 +1,235 @@
+{
+  "project_info": {
+    "project_number": "764289037261",
+    "firebase_url": "https://my-project-1538035262328.firebaseio.com",
+    "project_id": "my-project-1538035262328",
+    "storage_bucket": "my-project-1538035262328.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764289037261:android:35812dacf2240f7ede8a84",
+        "android_client_info": {
+          "package_name": "com.enscyd.firestore_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjnC859a82XaFl4bcPbeZ9j0oMvNbBwjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "764289037261-prfotb19a1vtprkl01s0aupgoj4r6j4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.enscyd.emart"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764289037261:android:06aef6de91c4e46fde8a84",
+        "android_client_info": {
+          "package_name": "com.enscyd.randomcall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764289037261-cjvp8tei8j5d9scm97altencg9slujcu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.enscyd.randomcall",
+            "certificate_hash": "0a671c11d5a6828df4fb7a5ff700f4e5247039e9"
+          }
+        },
+        {
+          "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjnC859a82XaFl4bcPbeZ9j0oMvNbBwjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "764289037261-prfotb19a1vtprkl01s0aupgoj4r6j4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.enscyd.emart"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764289037261:android:4d271d7732018dcfde8a84",
+        "android_client_info": {
+          "package_name": "com.example.traveltourandguidesystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjnC859a82XaFl4bcPbeZ9j0oMvNbBwjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "764289037261-prfotb19a1vtprkl01s0aupgoj4r6j4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.enscyd.emart"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764289037261:android:668ebb1ae070b118de8a84",
+        "android_client_info": {
+          "package_name": "com.qboxus.musictok"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjnC859a82XaFl4bcPbeZ9j0oMvNbBwjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "764289037261-prfotb19a1vtprkl01s0aupgoj4r6j4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.enscyd.emart"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764289037261:android:517104e1b023b1e4de8a84",
+        "android_client_info": {
+          "package_name": "com.sinch.android.rtc.sample.video"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjnC859a82XaFl4bcPbeZ9j0oMvNbBwjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "764289037261-prfotb19a1vtprkl01s0aupgoj4r6j4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.enscyd.emart"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764289037261:android:829e976f50420928de8a84",
+        "android_client_info": {
+          "package_name": "com.tenacioustechies.fiveminsofme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjnC859a82XaFl4bcPbeZ9j0oMvNbBwjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764289037261-jb8mcv2up6qhkap7h5bb7376c4j8tiej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "764289037261-prfotb19a1vtprkl01s0aupgoj4r6j4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.enscyd.emart"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

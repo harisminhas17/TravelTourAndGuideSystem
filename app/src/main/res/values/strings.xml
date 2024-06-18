@@ -8,4 +8,10 @@
     <string name="gs_string">MS</string>
     <string name="_100__string">100%</string>
     <string name="time_string">9:41 AM</string>
+    <string name="done">Done</string>
+    <string name="pkr">PKR</string>
+    <string name="language">Language</string>
+    <string name="share" />
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

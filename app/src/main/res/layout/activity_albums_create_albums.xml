@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.AlbumsCreateAlbumsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/tv_create_album_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_create_album_album"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Story &amp; Albums"
+            android:textColor="#054949"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/tv_create_album_notify"
+            android:layout_width="25dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/icbell" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view36"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"></View>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:text="Contribute to Pakistan"
+        android:textColor="#054949" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:text="Create Albums"
+        android:textColor="#326969" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_create_albums_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bars_grey_rounded"
+            android:drawablePadding="10dp"
+            android:singleLine="true"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Album Title"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_create_albums_line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Give your album an attractive title"
+            android:textSize="10sp"
+            android:singleLine="true"
+            android:layout_marginLeft="16dp">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/tv_create_album_cat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bars_grey_rounded"
+            android:drawablePadding="10dp"
+            android:singleLine="true"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Select Category"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:textColor="@color/colorPrimary"
+            android:enabled="false"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_create_album_line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Travel category relevant to your phone"
+            android:textSize="10sp"
+            android:singleLine="true"
+            android:layout_marginLeft="16dp"></TextView>
+
+        <EditText
+            android:id="@+id/tv_create_album_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bars_grey_rounded"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Give your album a description..."
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:minLines="8"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_write_story_photos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/bars_grey_rounded"
+            android:drawableLeft="@drawable/black_photos"
+            android:padding="15dp" />
+
+        <TextView
+            android:id="@+id/tv_create_album_line4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload photos relevant to tourism here"
+            android:textSize="10sp"
+            android:singleLine="true"
+            android:layout_gravity="center"></TextView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tv_create_album_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Cancel"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="14sp"></Button>
+
+        <ImageView
+            android:id="@+id/tv_create_album_upload"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/orange_upload"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/upload_button"></ImageView>
+    </LinearLayout>
+
+</LinearLayout>

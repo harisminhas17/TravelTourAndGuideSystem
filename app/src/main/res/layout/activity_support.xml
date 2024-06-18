@@ -10,8 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginTop="25dp"
-        android:orientation="horizontal">
+        android:padding="15dp">
 
         <ImageView
             android:id="@+id/back_btn3"
@@ -23,17 +25,13 @@
             android:id="@+id/support"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:layout_weight="1"
             android:fontFamily="@font/poppins_bold"
-            android:gravity="center"
+            android:layout_marginRight="30dp"
             android:text="Support"
-            android:textColor="#054949"
             android:textSize="25sp" />
 
-        <View
-            android:id="@+id/view20"
-            android:layout_width="30dp"
-            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -44,91 +42,114 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:fontFamily="@font/poppins_bold"
-        android:gravity="center"
-        android:text="Get in touch with us" />
-
-    <TextView
-        android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:text="Get in touch with us"
+        android:textColor="#054949" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
+        android:textSize="12sp"
         android:text="Send us a message, we will get back to you as soon as possible" />
 
     <View
         android:id="@+id/view21"
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="10dp" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/person" />
+        android:orientation="vertical">
 
-    <View
-        android:id="@+id/view22"
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        <EditText
+            android:id="@+id/tv_support_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_green_rounded"
+            android:drawableLeft="@drawable/baseline_person_outline_24"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Full Name"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColorHint="#FFFFFF"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
-    <EditText
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/profile_green_rounded"
-        android:fontFamily="@font/poppins_bold"
-        android:hint="Full Name"
-        android:padding="10dp"
-        android:textColorHint="#FFFFFF"
-        android:textSize="20sp" />
+        <EditText
+            android:id="@+id/tv_support_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_green_rounded"
+            android:drawableLeft="@drawable/baseline_email_24"
+            android:drawablePadding="10dp"
+            android:singleLine="true"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Email Address"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:textColorHint="#FFFFFF"
+            android:textColor="@color/white"
+            android:enabled="false"
+            android:textSize="12sp" />
 
-    <EditText
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/profile_green_rounded"
-        android:fontFamily="@font/poppins_bold"
-        android:hint="Email Address"
-        android:padding="10dp"
-        android:textColorHint="#FFFFFF"
-        android:textSize="20sp" />
+        <EditText
+            android:id="@+id/tv_support_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/support_message_rounded"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Write your message here......"
+            android:layout_gravity="center"
+            android:gravity="top"
+            android:minLines="6"
+            android:padding="15dp"
+            android:textColorHint="#FFFFFF"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
-    <EditText
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/profile_green_rounded"
-        android:fontFamily="@font/poppins_bold"
-        android:hint="Write your message here"
-        android:minLines="3"
-        android:padding="10dp"
-        android:textColorHint="#FFFFFF"
-        android:textSize="20sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_Support"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/image_item" />
 
-    <View
-        android:id="@+id/view23"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        <Button
+            android:id="@+id/tv_image_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round"
+            android:text="Choose Images"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/ic_launcher_background"></Button>
+
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/submit_btn"
+        android:id="@+id/tv_support_done"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:background="@drawable/button_round"
+        android:text="Done"
         android:fontFamily="@font/poppins_bold"
-        android:text="Submit" />
-
-    <View
-        android:id="@+id/view24"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:textSize="16sp"
+        android:textColor="@color/ic_launcher_background"
+        android:layout_gravity="center" />
 
 </LinearLayout>

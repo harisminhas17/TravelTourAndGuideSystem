@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="100dp"
+    tools:ignore="ExtraText">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_back" />
+
+                <TextView
+                    android:id="@+id/profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Settings"
+                    android:textColor="#054949"
+                    android:textSize="25sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/tv_btn_dark_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view18"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/tv_pic"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/placeholder_user"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="2dp"
+                    android:layout_gravity="center"
+                    tools:ignore="MissingConstraints" />
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view_p"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginHorizontal="20dp"
+                        app:cardBackgroundColor="#E7E7E7"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_tours"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/traveler"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Tour's"
+                            android:layout_gravity="center"
+                            android:textColor="#054D4F"
+                            android:textSize="20sp"
+                            tools:ignore="MissingConstraints" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        app:cardUseCompatPadding="true"
+                        android:layout_marginHorizontal="20dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardBackgroundColor="#E7E7E7"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_stories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/storybook"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Stories"
+                            android:layout_gravity="center"
+                            android:textColor="#054D4F"
+                            android:textSize="20sp"
+                            tools:ignore="MissingConstraints" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginHorizontal="20dp"
+                        app:cardBackgroundColor="#E7E7E7"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_albums"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/tourist_female"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Albums"
+                            android:layout_gravity="center"
+                            android:textColor="#054D4F"
+                            android:textSize="20sp"
+                            tools:ignore="MissingConstraints" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardCornerRadius="10dp"
+                        app:cardBackgroundColor="#E7E7E7"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_invite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/friends"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Invite"
+                            android:layout_gravity="center"
+                            android:textColor="#054D4F"
+                            android:textSize="20sp"
+                            tools:ignore="MissingConstraints" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/tv_btn_push"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Push Notifications"
+                    android:textColor="#054D4F" />
+
+                <TextView
+                    android:id="@+id/tv_text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_thin"
+                    android:text="Set up push notification"
+                    android:textColor="#054D4F"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/baseline_chevron_right_24"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/language"
+                    android:textColor="#054D4F" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/tv_btn_payment_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Payment Method"
+                    android:textColor="#054D4F" />
+
+                <TextView
+                    android:id="@+id/tv_text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_thin"
+                    android:text="Save my payment information"
+                    android:textColor="#054D4F"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Reviews"
+                    android:textColor="#054D4F"
+                    app:drawableRightCompat="@drawable/baseline_chevron_right_24" />
+
+
+                <TextView
+                    android:id="@+id/tv_text4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_thin"
+                    android:text="Your own reviews &amp; History"
+                    android:textColor="#054D4F"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Logout"
+                    android:textColor="#054D4F"
+                    app:drawableRightCompat="@drawable/logout_bars" />
+
+                <TextView
+                    android:id="@+id/tv_text5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_thin"
+                    android:text="Logout your account"
+                    android:textColor="#054D4F"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_delete_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Delete Your Account"
+                    android:textColor="#FF5722" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</FrameLayout>
+

@@ -16,7 +16,10 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url "https://jitpack.io" }
         maven {
-            url  'https://dl.bintray.com/gigamole/maven/'
+            url 'https://dl.bintray.com/gigamole/maven/'
+            maven { url "https://jitpack.io" }
+            google()
+            mavenCentral()
         }
     }
 }

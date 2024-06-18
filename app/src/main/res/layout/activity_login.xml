@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
@@ -86,14 +87,14 @@
             android:background="@drawable/green_btn_rounded"
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
-            android:paddingLeft="60dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:paddingTop="20dp"
-            android:paddingRight="60dp"
             android:paddingBottom="20dp"
             android:text="LOGIN"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <View
