@@ -29,7 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity {
-    ImageView imageView;
+    ImageView next_button;
 
     private Context context;
 
@@ -40,18 +40,17 @@ public class SplashActivity extends AppCompatActivity {
         context = SplashActivity.this;
 
         getSupportActionBar().hide();
-        imageView = findViewById(R.id.next_button);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        next_button = findViewById(R.id.next_button);
+        next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(context, OnboardingActivity.class));
+                if (new SharedPref().getEmailData(context).length() > 0) {
+                    startActivity(new Intent(context, MainActivity.class));
+                }
                 finish();
             }
         });
-        if (new SharedPref().getEmailData(context).length() > 0) {
-            startActivity(new Intent(context, MainActivity.class));
-            finish();
-        }
 
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
             @Override

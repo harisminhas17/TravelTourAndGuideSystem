@@ -3,7 +3,6 @@ package com.example.traveltourandguidesystem.Fragments;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.traveltourandguidesystem.Activities.EmergencyDetailActivity;
 import com.example.traveltourandguidesystem.Activities.NotificationActivity;
 import com.example.traveltourandguidesystem.Activities.ProfileActivity;
 import com.example.traveltourandguidesystem.Adapters.PlacesAdapter;
@@ -24,14 +24,6 @@ import com.example.traveltourandguidesystem.Helper.ApiClient;
 import com.example.traveltourandguidesystem.Models.PlacesModel;
 import com.example.traveltourandguidesystem.R;
 import com.google.gson.Gson;
-
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,12 +44,13 @@ public class HomeFragment extends Fragment {
 
     SearchView tv_search_bar;
     ImageView notify_btn;
+
+    ImageView emg_btn;
     ImageView profile_btn;
     RecyclerView recyclerView_top;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerView_all;
     ArrayList<PlacesModel> placesModels = new ArrayList<>();
     ProgressDialog progressDialog;
-    MagicIndicator magicIndicator;
     private Context context;
 
     private static final String ARG_PARAM1 = "param1";
@@ -105,56 +98,20 @@ public class HomeFragment extends Fragment {
 
         progressDialog = new ProgressDialog(context);
         progressDialog.setCancelable(true);
-        ArrayList<String> mTitleDataList = new ArrayList();
-        mTitleDataList.add("All");
-        mTitleDataList.add("Popular");
-        mTitleDataList.add("Nearby");
 
-        CommonNavigator commonNavigator = new CommonNavigator(context);
-        commonNavigator.setSkimOver(true);
-        commonNavigator.setEnablePivotScroll(true);
-        commonNavigator.setEnabled(true);
-        commonNavigator.setAdjustMode(true);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
 
-            @Override
-            public int getCount() {
-                return mTitleDataList == null ? 0 : mTitleDataList.size();
-            }
-
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.GRAY);
-                colorTransitionPagerTitleView.setSelectedColor(Color.BLACK);
-                colorTransitionPagerTitleView.setText(mTitleDataList.get(index));
-                colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        magicIndicator.onPageScrolled(index, 0, 0);
-                    }
-                });
-                return colorTransitionPagerTitleView;
-            }
-
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
-                return indicator;
-            }
-        });
-        magicIndicator.setNavigator(commonNavigator);
         showAllPlaces();
     }
 
     private void initViews(View view) {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView_top = view.findViewById(R.id.recyclerView_top);
+        recyclerView_all = view.findViewById(R.id.recyclerView_all);
         profile_btn = view.findViewById(R.id.profile_btn);
         notify_btn = view.findViewById(R.id.notify_btn);
+        emg_btn = view.findViewById(R.id.emg_btn);
         tv_search_bar = view.findViewById(R.id.tv_search_bar);
-        magicIndicator = (MagicIndicator) view.findViewById(R.id.magic_indicator);
+
     }
 
     private void clickListeners() {
@@ -168,6 +125,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(context, NotificationActivity.class));
+            }
+        });
+        emg_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, EmergencyDetailActivity.class));
             }
         });
     }
@@ -192,8 +155,10 @@ public class HomeFragment extends Fragment {
                         }
                         PlacesAdapter placesAdapter = new PlacesAdapter(placesModels, context, false);
                         recyclerView_top.setAdapter(placesAdapter);
-                        PlacesAdapter placesAdapter2 = new PlacesAdapter(placesModels, context, true);
+                        PlacesAdapter placesAdapter2 = new PlacesAdapter(placesModels, context, false);
                         recyclerView.setAdapter(placesAdapter2);
+                        PlacesAdapter placesAdapter3 = new PlacesAdapter(placesModels, context, true);
+                        recyclerView_all.setAdapter(placesAdapter3);
 
 
                     }

@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <EditText
             android:id="@+id/tv_share_exp_place"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
             android:textColorHint="@color/black"
             android:textColor="@color/colorPrimary"
             android:enabled="false"
-            android:textSize="12sp" />
+            android:textSize="12sp"></EditText>
 
         <TextView
             android:id="@+id/tv_share_exp_line1"
@@ -100,7 +100,7 @@
         </TextView>
 
 
-        <TextView
+        <EditText
             android:id="@+id/tv_share_exp_travel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -114,7 +114,9 @@
             android:textColorHint="@color/black"
             android:textColor="@color/colorPrimary"
             android:enabled="false"
-            android:textSize="12sp" />
+            android:textSize="12sp">
+
+        </EditText>
 
         <TextView
             android:id="@+id/tv_share_exp_rate"
@@ -137,17 +139,10 @@
             android:gravity="center"
             android:minLines="8"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="12sp">
 
-        <TextView
-            android:id="@+id/tv_write_story_photos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/bars_grey_rounded"
-            android:drawableLeft="@drawable/black_photos"
-            android:padding="15dp" />
+        </EditText>
+
 
         <TextView
             android:id="@+id/tv_share_exp_line4"
@@ -156,7 +151,11 @@
             android:text="Upload photos relevant to tourism here"
             android:textSize="10sp"
             android:singleLine="true"
-            android:layout_gravity="center"></TextView>
+            android:layout_gravity="center">
+
+        </TextView>
+
+
     </LinearLayout>
 
 
@@ -167,7 +166,7 @@
         android:layout_gravity="right"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/tv_share_exp_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -177,7 +176,7 @@
             android:textColor="@color/ic_launcher_background"
             android:textSize="14sp">
 
-        </Button>
+        </androidx.appcompat.widget.AppCompatButton>
 
         <ImageView
             android:id="@+id/tv_share_exp_upload"

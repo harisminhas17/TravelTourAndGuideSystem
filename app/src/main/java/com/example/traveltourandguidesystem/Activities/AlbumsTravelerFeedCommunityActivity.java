@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.traveltourandguidesystem.Fragments.AlbumsFragment;
 import com.example.traveltourandguidesystem.R;
@@ -13,7 +14,7 @@ import com.example.traveltourandguidesystem.R;
 public class AlbumsTravelerFeedCommunityActivity extends AppCompatActivity {
 
     ImageView tv_traveler_c_back, tv_traveler_notify;
-
+    RecyclerView recyclerView_top;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,8 @@ public class AlbumsTravelerFeedCommunityActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         tv_traveler_c_back = findViewById(R.id.tv_traveler_c_back);
         tv_traveler_notify = findViewById(R.id.tv_traveler_notify);
+        recyclerView_top = findViewById(R.id.recyclerView_top);
+
         tv_traveler_c_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.EmergencyDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/back_btn3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/support"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginRight="30dp"
+            android:text="Emergency Contact"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view18"
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins_bold"
+        android:text="In any Trouble or Critical Situation"
+        android:textColor="#054949"
+        android:textSize="12sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view21"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:paddingLeft="15dp"
+                android:text="Islamabad Capital Contact's"
+                android:textColor="#054949" />
+
+            <EditText
+                android:id="@+id/isb_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_margin="10dp"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:text="Rescue Helpline: 1122"
+                android:enabled="false"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/isb_c_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Police Helpline: 15"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/isb_c_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Fire Brigade Helpline: 16"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/isb_c_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Edhi Ambulance Helpline: 115"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/isb_c_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Chhipa Helpline: 1020"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/isb_c_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Pakistan Medical Assistance Helpline: 1166"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:paddingLeft="15dp"
+                android:text="Punjab Contact's"
+                android:textColor="#054949" />
+
+            <EditText
+                android:id="@+id/pun_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_margin="10dp"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:text="Rescue Helpline: 1122"
+                android:enabled="false"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/pun_c_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Police Helpline: 15"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/pun_c_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Fire Brigade Helpline: 16"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/pun_c_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Women Helpline: 1043"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/pun_c_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Disaster Management Helpline: 1129"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/pun_c_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_margin="10dp"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:text="Child Protection Welfare Bureau: 1121"
+                android:enabled="false"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/pun_c_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_margin="10dp"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:text="Ambulance Edhi: 042-37847050, 042-37847060"
+                android:enabled="false"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:paddingLeft="15dp"
+                android:text="Khyber Pakhtunkhaw Contact's"
+                android:textColor="#054949" />
+
+            <EditText
+                android:id="@+id/k_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Rescue 1122: 091-2264224-25"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
+            <EditText
+                android:id="@+id/k_c_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Fire Brigade: 091-2566666"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/k_c_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Police Helpline: 091-9212222"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/k_c_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Edhi Ambulance: 091-2214575"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/k_c_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Fauji Foundation Hospital: 091-9212771-4"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:paddingLeft="15dp"
+                android:text="Sindh Contact's"
+                android:textColor="#054949" />
+
+            <EditText
+                android:id="@+id/s_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Edhi Ambulance: 115"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/s_c_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Sindh Police: 15"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/s_c_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Chippa Helpline: 1020"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/s_c_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="8dp"
+                android:singleLine="true"
+                android:text="Sindh Child Protection Authority : 1121"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

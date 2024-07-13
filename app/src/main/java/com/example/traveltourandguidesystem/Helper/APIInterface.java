@@ -43,11 +43,25 @@ public interface APIInterface {
     @GET("showAllPlaces")
     Call<Object> showAllPlaces();
 
+    @GET("showAllHotels")
+    Call<Object> showAllHotels();
+
+    @GET("findGuiderByCityid")
+    Call<Object> findGuiderByCityid(@Query("city_id") int city_id);
+
+    @GET("findTransportationByCityid")
+    Call<Object> findTransportationByCityid(@Query("city_id") int city_id);
+
     @GET("showAllNotifications")
     Call<Object> showAllNotifications(@Query("user_id") int user_id);
 
     @POST("updateNotificationToken")
     @FormUrlEncoded
     Call<Object> updateNotificationToken(@Field("email") String email, @Field("token") String token);
+
+    @POST("deleteUser")
+    @FormUrlEncoded
+    Call<Object> deleteUser(@Query("id") int id, @Field("password") String password);
+
 
 }

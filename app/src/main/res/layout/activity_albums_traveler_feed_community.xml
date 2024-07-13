@@ -81,9 +81,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:listitem="@layout/places_item"
+        android:layout_weight="1"
+        android:paddingBottom="100dp"
+        tools:listitem="@layout/places_item_horizontal"
+        android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>

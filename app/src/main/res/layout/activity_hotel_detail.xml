@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.PlaceDetailActivity">
+    tools:context=".Activities.HotelDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:layout_marginRight="25dp"
-            android:text="Tour"
+            android:text="Hotel Details"
             android:textColor="@color/colorPrimary"
             android:textSize="25sp" />
 
@@ -39,8 +39,8 @@
             android:layout_height="30dp"
             android:layout_marginRight="10dp"
             app:srcCompat="@drawable/icbell" />
-
     </LinearLayout>
+
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -57,17 +57,17 @@
                 android:id="@+id/slider"
                 android:layout_marginTop="24dp"
                 app:cardSlider_smallScaleFactor="0.9"
-            app:cardSlider_otherPagesWidth="24dp"
-            app:cardSlider_pageMargin="12dp"
-            app:auto_slide_time="3"/>
+                app:cardSlider_otherPagesWidth="24dp"
+                app:cardSlider_pageMargin="12dp"
+                app:auto_slide_time="3" />
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/tv_h_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Badshahi Mosque"
+                android:text="Capital House Islamabad"
                 android:textColor="#000000"
                 android:textSize="16sp" />
 
@@ -75,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
 
                 <ImageView
                     android:id="@+id/imageView17"
@@ -96,50 +97,14 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/tv_h_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="sans-serif"
-                android:text="Historical" />
+                android:singleLine="true"
+                android:text="P2GW+R88, Street 11, E-7, Islamabad, Islamabad Capital Territory" />
 
-            <TextView
-                android:id="@+id/tv_about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="sans-serif"
-                android:text="Walled City of Lahore, Punjab, Pakistan" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="About"
-                android:textColor="#054949"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textView33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Description"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tv_detail_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="sans-serif"
-                android:text="The Badshahi Mosque was built between 1671 and 1673 and by the Mughal emperor Aurangzeb. The mosque is an important example of Mughal architecture, with an exterior that is decorated with carved red sandstone with marble inlay. It remains the largest mosque of the Mughal-era, and is the third-largest mosque in Pakistan."
-                android:textColor="#054D4F"
-                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textView37"
@@ -175,21 +140,6 @@
                     android:drawableTop="@drawable/baseline_directions_24"
                     android:text="Direction" />
 
-                <TextView
-                    android:id="@+id/tv_visited"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:drawableTop="@drawable/mark"
-                    android:text="Mark Visited" />
-
-                <TextView
-                    android:id="@+id/tv_mark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:drawableTop="@drawable/baseline_favorite_border_24"
-                    android:text="Mark Favourite" />
 
             </LinearLayout>
 
@@ -205,13 +155,12 @@
                 android:layout_gravity="center"
                 android:background="@drawable/button_round"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Confirm"
+                android:text="Book Hotel Now!"
                 android:textColor="#FFFFFF" />
 
-            <View
-                android:id="@+id/view13"
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
         </LinearLayout>
+
     </ScrollView>
+
+
 </LinearLayout>

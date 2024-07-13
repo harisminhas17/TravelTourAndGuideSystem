@@ -12,6 +12,6 @@
     <string name="pkr">PKR</string>
     <string name="language">Language</string>
     <string name="share" />
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="google_maps_key">AIzaSyAoedC95vgOOAeAAO9M2SrgujTYlE5V22c</string>
 </resources>

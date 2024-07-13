@@ -30,11 +30,22 @@ import androidx.fragment.app.Fragment;
 
 import com.example.traveltourandguidesystem.Activities.LoginActivity;
 import com.example.traveltourandguidesystem.Activities.MainActivity;
-import com.example.traveltourandguidesystem.Activities.OTPActivity;
+import com.example.traveltourandguidesystem.Activities.SignupActivity;
+import com.example.traveltourandguidesystem.Helper.APIInterface;
+import com.example.traveltourandguidesystem.Helper.ApiClient;
+import com.example.traveltourandguidesystem.Helper.SharedPref;
 import com.example.traveltourandguidesystem.R;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MenuFragment extends Fragment {
     ImageView back_btn;
@@ -125,26 +136,12 @@ public class MenuFragment extends Fragment {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(context, "Logout Successfully", Toast.LENGTH_SHORT).show();
+                SharedPref sharedPref = new SharedPref();
+                sharedPref.logout(context);
                 Intent intent = new Intent(context, LoginActivity.class);
                 startActivity(intent);
                 ((Activity) context).finish();
-                Toast.makeText(context, "Logout Successfully", Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setNegativeButton("No", null).show();
-    }
-
-    private void delete() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Deletion of Account!");
-        builder.setMessage("Are You Sure To Delete Your Account?");
-        builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(context, OTPActivity.class);
-                ((Activity) context).finish();
-                Toast.makeText(context, "Your Account Has Been Deleted Successfully", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("No", null).show();
@@ -161,7 +158,7 @@ public class MenuFragment extends Fragment {
         tv_delete_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delete();
+                deleteUser();
             }
         });
 
@@ -206,6 +203,7 @@ public class MenuFragment extends Fragment {
             }
         });
     }
+
 
     //language change here
     private void changelanguage() {
@@ -278,10 +276,48 @@ public class MenuFragment extends Fragment {
         return true;
     }
 
+    public void deleteUser() {
 
+        int id2 = new SharedPref().getid(getContext());
+        String password = new SharedPref().getpassword(getContext());
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Deletion of Account!");
+        builder.setMessage("Are You Sure To Delete Your Account?");
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(context, SignupActivity.class);
+                startActivity(intent);
+                ((Activity) context).finish();
+                Toast.makeText(context, "Your Account Has Been Deleted Successfully", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("No", null);
+        builder.show();
+
+        ApiClient apiClient = new ApiClient();
+        Call<Object> responseCall = apiClient.getClient(getContext()).create(APIInterface.class).deleteUser(id2, password);
+        responseCall.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
+                    boolean error = jsonObject.getBoolean("error");
+                    if (error) {
+                        String msg = jsonObject.getString("Please Wait");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable throwable) {
+                throwable.printStackTrace();
+            }
+        });
+    }
 }
-
-
-
-
-

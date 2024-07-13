@@ -63,7 +63,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void signup(String name, String email, String password) {
-        progressDialog.setMessage("Creating New Accounting...");
+        progressDialog.setMessage("Creating New Account...");
         progressDialog.show();
         ApiClient apiClient = new ApiClient();
         Call<Object> responseCall = apiClient.getClient(SignupActivity.this).create(APIInterface.class).register(name, email, password);

@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <EditText
             android:id="@+id/tv_captions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
         </TextView>
 
 
-        <TextView
+        <EditText
             android:id="@+id/tv_story_place"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -139,15 +139,14 @@
             android:textColor="@color/black"
             android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/tv_write_story_photos"
-            android:layout_width="wrap_content"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_Support"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/bars_grey_rounded"
-            android:drawableLeft="@drawable/black_photos"
-            android:padding="15dp" />
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/image_item" />
 
         <TextView
             android:id="@+id/tv_write_story_line4"
@@ -157,6 +156,18 @@
             android:textSize="10sp"
             android:singleLine="true"
             android:layout_gravity="center"></TextView>
+
+
+        <Button
+            android:id="@+id/tv_image_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round"
+            android:text="Choose Images"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/ic_launcher_background"></Button>
     </LinearLayout>
 
 

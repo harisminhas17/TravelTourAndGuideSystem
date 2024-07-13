@@ -50,6 +50,7 @@ public class SupportActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         progressDialog = new ProgressDialog(SupportActivity.this);
         progressDialog.setCancelable(true);
+
         back_btn3 = findViewById(R.id.back_btn3);
         tv_support_done = findViewById(R.id.tv_support_done);
         tv_support_name = findViewById(R.id.tv_support_name);
@@ -60,6 +61,7 @@ public class SupportActivity extends AppCompatActivity {
 
         String email = new SharedPref().getEmailData(SupportActivity.this);
         String name = new SharedPref().getNameData(SupportActivity.this);
+
         if (name.length() > 0 && email.length() > 0) {
             tv_support_name.setText(name);
             tv_support_email.setText(email);
@@ -80,7 +82,6 @@ public class SupportActivity extends AppCompatActivity {
                         .compress(1024)            //Final image size will be less than 1 MB(Optional)
                         .maxResultSize(100, 100)    //Final image resolution will be less than 1080 x 1080(Optional)
                         .start(999);
-
             }
         });
 

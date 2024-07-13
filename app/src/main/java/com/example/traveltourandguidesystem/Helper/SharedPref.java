@@ -36,4 +36,14 @@ public class SharedPref {
         final SharedPreferences sharedPreferences = context.getSharedPreferences("Data", Context.MODE_PRIVATE);
         return sharedPreferences.getString("Password", "");
     }
+
+    public void logout(Context context) {
+        final SharedPreferences sharedPreferences = context.getSharedPreferences("Data", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("Email");
+        editor.remove("Name");
+        editor.remove("Password");
+        editor.remove("user_id");
+        editor.commit();
+    }
 }

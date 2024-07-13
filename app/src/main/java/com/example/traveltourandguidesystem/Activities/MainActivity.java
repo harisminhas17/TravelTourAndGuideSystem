@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentContainerView;
 
 import com.example.traveltourandguidesystem.Fragments.AlbumsFragment;
 import com.example.traveltourandguidesystem.Fragments.HomeFragment;
-import com.example.traveltourandguidesystem.Fragments.MapFragment;
+import com.example.traveltourandguidesystem.Fragments.MapsFragment;
 import com.example.traveltourandguidesystem.Fragments.MenuFragment;
 import com.example.traveltourandguidesystem.R;
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 tv_main_gallery.setImageDrawable(getResources().getDrawable(R.drawable.ic_albums_white));
                 tv_main_loc.setImageDrawable(getResources().getDrawable(R.drawable.ic_location_pin_colored));
                 tv_main_bar.setImageDrawable(getResources().getDrawable(R.drawable.baseline_segment_24));
-                setFragmentContainer(new MapFragment());
+                setFragmentContainer(new MapsFragment());
             }
         });
         tv_main_bar.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Exit Alert")

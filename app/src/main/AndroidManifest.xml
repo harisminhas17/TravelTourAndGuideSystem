@@ -13,6 +13,31 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activities.EmergencyDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.TransportationDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.TransportationListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.HotelDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.GuiderProfileActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <uses-library android:name="com.google.android.maps" />
+
+        <activity
+            android:name=".Activities.HotelsListActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.AlbumsTravelerFeedCommunityActivity"
             android:exported="false" />
         <activity
@@ -37,12 +62,6 @@
             android:name=".Activities.UserReviewsActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.MapActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.AlbumsActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.ProfileActivity"
             android:exported="false" />
         <activity
@@ -50,9 +69,6 @@
             android:exported="false" />
         <activity
             android:name=".Activities.PlaceDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.BarsActivity"
             android:exported="false" />
         <activity
             android:name=".Activities.SupportActivity"
@@ -79,7 +95,9 @@
         <activity
             android:name=".Activities.RegistrationActivity"
             android:exported="false" />
-        <activity android:name=".Activities.OnboardingActivity" />
+        <activity
+            android:name=".Activities.OnboardingActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -90,6 +108,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.TourGuideListActivity" />
 
         <service
             android:name=".Activities.MyFirebaseMessagingService"
@@ -98,6 +117,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
