@@ -20,6 +20,12 @@ public class SharedPref {
 
     }
 
+    public static String getaddressData(Context context) {
+        final SharedPreferences sharedPreferences = context.getSharedPreferences("Data", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("Address", "");
+
+    }
+
     public String getNameData(Context context) {
         final SharedPreferences sharedPreferences = context.getSharedPreferences("Data", Context.MODE_PRIVATE);
         return sharedPreferences.getString("Name", "");

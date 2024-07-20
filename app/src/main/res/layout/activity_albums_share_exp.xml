@@ -66,6 +66,9 @@
         android:textSize="15sp"
         android:text="Share Experience"
         android:textColor="#326969" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,8 +87,7 @@
             android:layout_margin="10dp"
             android:padding="10dp"
             android:textColorHint="@color/black"
-            android:textColor="@color/colorPrimary"
-            android:enabled="false"
+            android:textColor="@color/teal_700"
             android:textSize="12sp"></EditText>
 
         <TextView
@@ -108,12 +110,11 @@
             android:drawablePadding="10dp"
             android:singleLine="true"
             android:fontFamily="@font/poppins_bold"
-            android:hint="Select Travel Experience"
+            android:hint="Travel Experience"
             android:layout_margin="10dp"
             android:padding="10dp"
             android:textColorHint="@color/black"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
             android:textSize="12sp">
 
         </EditText>
@@ -134,11 +135,12 @@
             android:background="@drawable/bars_grey_rounded"
             android:drawablePadding="10dp"
             android:fontFamily="@font/poppins_bold"
-            android:text="Write Your Experience..."
+            android:hint="Write Your Experience..."
             android:layout_margin="10dp"
             android:gravity="center"
             android:minLines="8"
-            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textColor="@color/teal_700"
             android:textSize="12sp">
 
         </EditText>
@@ -156,7 +158,7 @@
         </TextView>
 
 
-    </LinearLayout>
+
 
 
     <LinearLayout
@@ -166,7 +168,7 @@
         android:layout_gravity="right"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/tv_share_exp_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -176,11 +178,11 @@
             android:textColor="@color/ic_launcher_background"
             android:textSize="14sp">
 
-        </androidx.appcompat.widget.AppCompatButton>
+        </Button>
 
         <ImageView
             android:id="@+id/tv_share_exp_upload"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:background="@drawable/orange_upload"
             android:layout_marginLeft="20dp"
@@ -191,5 +193,9 @@
         </ImageView>
 
     </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
 
 </LinearLayout>

@@ -31,9 +31,7 @@ public class TourGuideListActivity extends AppCompatActivity {
     RecyclerView recyclerView_top;
     Button tv_guider_skip;
     private Context context;
-
-    int city_id;
-
+    static int city_id;
     ArrayList<TourGuiderModel> tourGuiderModels = new ArrayList<>();
 
     @SuppressLint("MissingInflatedId")
@@ -43,6 +41,7 @@ public class TourGuideListActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         context = TourGuideListActivity.this;
         setContentView(R.layout.activity_tour_guide_list_activty);
+
         city_id = getIntent().getIntExtra("city_id", 0);
 
         recyclerView_top = findViewById(R.id.recyclerView_top);
@@ -51,10 +50,9 @@ public class TourGuideListActivity extends AppCompatActivity {
         tv_guider_skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, TransportationListActivity.class));
+                startActivity(new Intent(context, TransportationListActivity.class).putExtra("city_id", city_id));
             }
         });
-
 
     }
 

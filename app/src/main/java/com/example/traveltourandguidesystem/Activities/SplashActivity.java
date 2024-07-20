@@ -30,7 +30,6 @@ import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity {
     ImageView next_button;
-
     private Context context;
 
     @Override

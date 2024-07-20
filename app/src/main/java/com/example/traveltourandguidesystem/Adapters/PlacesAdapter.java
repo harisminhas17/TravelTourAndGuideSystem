@@ -62,7 +62,9 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                 context.startActivity(new Intent(context, PlaceDetailActivity.class).putExtra("placemodel",placesModel));
             }
         });
+
     }
+
 
     public class PlacesViewHolder extends RecyclerView.ViewHolder {
         View view;

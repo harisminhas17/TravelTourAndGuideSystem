@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,27 +66,36 @@
         android:textSize="15sp"
         android:text="Here we go," />
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"></View>
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#FaFaFa">
+        android:layout_gravity="center"
+        app:cardCornerRadius="50dp"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#009688">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:paddingTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/albums_photos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/orange_photos"
+                android:drawableTop="@drawable/baseline_photo_library_24"
                 android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
                 android:text="Add Photos"
-                android:textColor="#054D4F"
+                android:textColor="#FFFFFF"
                 android:textSize="10sp"
                 tools:ignore="MissingConstraints" />
 
@@ -94,10 +104,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
-                android:drawableTop="@drawable/write_story"
+                android:drawableTop="@drawable/baseline_auto_stories_24"
                 android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
                 android:text="Write Story"
-                android:textColor="#054D4F"
+                android:textColor="#FFFFFF"
                 android:textSize="10sp"
                 tools:ignore="MissingConstraints" />
 
@@ -106,10 +117,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
-                android:drawableTop="@drawable/create_albums"
+                android:drawableTop="@drawable/baseline_album_24"
                 android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
                 android:text="Create Albums"
-                android:textColor="#054D4F"
+                android:textColor="#FFFFFF"
                 android:textSize="10sp"
                 tools:ignore="MissingConstraints" />
 
@@ -118,66 +130,77 @@
 
     </androidx.cardview.widget.CardView>
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"></View>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#FaFaFa" />
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingTop="10dp"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
+        app:cardCornerRadius="50dp"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#009688">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
 
-        <TextView
-            android:id="@+id/share_exp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:drawableTop="@drawable/share_exp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Share Experience"
-            android:textColor="#054D4F"
-            android:textSize="10sp"
-            android:layout_marginRight="25dp"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/albums_share_exp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="25dp"
+                android:background="#009688"
+                android:drawableTop="@drawable/baseline_travel_explore_24"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Share Experience"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/tv_community"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:drawableTop="@drawable/world_community"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Community"
-            android:gravity="center"
-            android:textColor="#054D4F"
-            android:textSize="10sp"
-            tools:ignore="MissingConstraints" />
+            </TextView>
 
-        <TextView
-            android:id="@+id/ask_questions"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40dp"
-            android:drawableTop="@drawable/ask_questions"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Ask Question"
-            android:textColor="#054D4F"
-            android:textSize="10sp"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/tv_community"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/baseline_groups_24"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Community"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/ask_questions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:drawableTop="@drawable/baseline_question_answer_24"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Ask Question"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                tools:ignore="MissingConstraints" />
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
         android:scaleType="center"
+        android:layout_marginBottom="100dp"
         app:srcCompat="@drawable/story_album_main"></ImageView>
+
 
 </LinearLayout>

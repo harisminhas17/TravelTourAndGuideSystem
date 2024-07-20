@@ -7,13 +7,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -24,7 +21,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
@@ -40,7 +36,6 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.Locale;
 
 import retrofit2.Call;
@@ -48,18 +43,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MenuFragment extends Fragment {
-    ImageView back_btn;
+    ImageView back_btn, tv_share_to_others;
     TextView tv_language;
     TextView tv_delete_account;
     TextView tv_reviews;
     TextView tv_logout;
     SwitchCompat tv_btn_push;
-
     SwitchCompat tv_btn_payment_method;
-    SwitchCompat tv_btn_dark_mode;
-    Boolean nightMODE;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+
     private Context context;
 
 
@@ -106,13 +97,6 @@ public class MenuFragment extends Fragment {
         clickListeners();
         loadLocale();
 
-        sharedPreferences = context.getSharedPreferences("Mode", MODE_PRIVATE);
-        nightMODE = sharedPreferences.getBoolean("night", false);      //light mode is on by default
-        if (nightMODE) {
-            tv_btn_dark_mode.setChecked(true);
-        }
-
-
     }
 
 
@@ -121,10 +105,10 @@ public class MenuFragment extends Fragment {
         tv_language = view.findViewById(R.id.tv_language);
         tv_delete_account = view.findViewById(R.id.tv_delete_account);
         tv_reviews = view.findViewById(R.id.tv_reviews);
-        tv_btn_dark_mode = view.findViewById(R.id.tv_btn_dark_mode);
         tv_btn_push = view.findViewById(R.id.tv_btn_push);
         tv_btn_payment_method = view.findViewById(R.id.tv_btn_payment_method);
         tv_logout = view.findViewById(R.id.tv_logout);
+        tv_share_to_others = view.findViewById(R.id.tv_share_to_others);
     }
 
 
@@ -154,6 +138,17 @@ public class MenuFragment extends Fragment {
                 logout();
             }
         });
+        tv_share_to_others.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Book Your Tour Now!");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "TRAVEL TOUR & GUIDE SYSTEM \n BOOK YOUR TOUR NOW!");
+                startActivity(Intent.createChooser(shareIntent, "Share Via"));
+            }
+        });
+
 
         tv_delete_account.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,27 +181,15 @@ public class MenuFragment extends Fragment {
                     // Toast.makeText(getApplicationContext(), "Switch1 :" + tv_btn_push,Toast.LENGTH_LONG).show(); // display the current state for switch's
                 }
             }
-        });
-        tv_btn_dark_mode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (nightMODE) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    editor = sharedPreferences.edit();
-                    editor.putBoolean("night", false);
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    editor = sharedPreferences.edit();
-                    editor.putBoolean("night", true);
-                }
-                editor.apply();
-            }
+
+
         });
     }
 
 
     //language change here
     private void changelanguage() {
+
         final String languages[] = {"English", "Urdu"};
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Choose Language");
@@ -249,32 +232,30 @@ public class MenuFragment extends Fragment {
         setlocale(language);
     }
 
-    //share of the app to others
-
 //    @SuppressLint("ResourceType")
 //    @Override
-//    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-//        context.getMenuInflater().inflate(R.menu.menu,menu);
-//        return super.onCreateOptionsMenu(menu);
+//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+//        inflater.inflate(R.menu.menu, menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        int id = item.getItemId();
+//        if (id == R.id.tv_share_to_others) {
+//            ApplicationInfo api = context.getApplicationContext().getApplicationInfo(); // Corrected context reference
+//            String appPath = api.sourceDir; // Corrected variable name
+//            Intent intent = new Intent(Intent.ACTION_SEND); // Share app to others with subject and text shown to the users
+//            intent.setType("text/plain");
+//            intent.putExtra(Intent.EXTRA_SUBJECT, "Book Your Tour Now!");
+//            intent.putExtra(Intent.EXTRA_TEXT, "Application Link Here");
+//            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(appPath)));
+//            startActivity(Intent.createChooser(intent, "Share Via"));
+//            return true; // Corrected return statement
+//        }
+//        return super.onOptionsItemSelected(item); // Moved outside the if block
 //    }
 
-    //share of app to others and its subject and text shown to the users
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.sharebtn) {
-            ApplicationInfo api = context.getApplicationInfo();
-            String apathy = api.sourceDir;
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Book Your Tour Now!");
-            intent.putExtra(Intent.EXTRA_TEXT, "Application Link Here");
-            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apathy)));
-            startActivity(Intent.createChooser(intent, "Share Via"));
-            return super.onOptionsItemSelected(item);
-        }
-        return true;
-    }
 
     public void deleteUser() {
 
@@ -297,6 +278,7 @@ public class MenuFragment extends Fragment {
         });
         builder.setNegativeButton("No", null);
         builder.show();
+
 
         ApiClient apiClient = new ApiClient();
         Call<Object> responseCall = apiClient.getClient(getContext()).create(APIInterface.class).deleteUser(id2, password);

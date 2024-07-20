@@ -8,7 +8,11 @@ public class ImageModel implements Parcelable {
     String image_name;
 
 
-    protected ImageModel(Parcel in) {
+    public ImageModel(String image_name) {
+        this.image_name = image_name;
+    }
+
+    public ImageModel(Parcel in) {
         id = in.readInt();
         image_name = in.readString();
     }

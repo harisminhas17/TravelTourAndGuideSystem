@@ -34,12 +34,15 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         getSupportActionBar().hide();
+
         edit_text_name = findViewById(R.id.edit_text_name);
         edit_text_email_address2 = findViewById(R.id.edit_text_email_address2);
         edit_text_password2 = findViewById(R.id.edit_text_password2);
         submit_btn = findViewById(R.id.submit_btn);
+
         progressDialog=new ProgressDialog(SignupActivity.this);
         progressDialog.setCancelable(true);
+
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

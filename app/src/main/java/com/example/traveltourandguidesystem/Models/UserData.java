@@ -2,7 +2,7 @@ package com.example.traveltourandguidesystem.Models;
 
 public class UserData {
     int id;
-    String name, email, image, location;
+    String name, email, image, address;
 
     public int getId() {
         return id;
@@ -36,11 +36,11 @@ public class UserData {
         this.image = image;
     }
 
-    public String getLocation() {
-        return location;
+    public String getAddress() {
+        return address;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

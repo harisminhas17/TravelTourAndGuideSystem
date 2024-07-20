@@ -28,7 +28,7 @@
                 <ImageView
                     android:id="@+id/imageview"
                     android:layout_width="120dp"
-                    android:layout_height="95dp"
+                    android:layout_height="100dp"
                     android:scaleType="center"
                     tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
@@ -47,7 +47,7 @@
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Honda Civic"
-                    android:textColor="#000000"
+                    android:textColor="#004d4c"
                     android:textSize="16sp" />
 
                 <TextView
@@ -59,7 +59,7 @@
                     android:gravity="center"
                     android:text="Color: Black"
                     android:textColor="#000000"
-                    android:textSize="10sp" />
+                    android:textSize="11sp" />
 
                 <TextView
                     android:id="@+id/tv_v_type"
@@ -70,7 +70,7 @@
                     android:gravity="center"
                     android:text="Type: Sedan"
                     android:textColor="#000000"
-                    android:textSize="10sp" />
+                    android:textSize="11sp" />
 
 
                 <TextView
@@ -82,19 +82,18 @@
                     android:gravity="center"
                     android:text="Number Plate: CHK 123"
                     android:textColor="#000000"
-                    android:textSize="10sp" />
+                    android:textSize="11sp" />
 
                 <TextView
-                    android:id="@+id/tv_v_address"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_v_model"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
-                    android:drawableLeft="@drawable/ic_location_pin_colored_small"
                     android:singleLine="true"
                     android:gravity="center_vertical"
-                    android:text="9.4 km of Shah Faisal Mosque Islamabad"
+                    android:text="Model:2015"
                     android:textColor="#A2A2A2"
                     android:textSize="14sp" />
 

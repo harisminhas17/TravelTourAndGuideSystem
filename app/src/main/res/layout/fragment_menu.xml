@@ -43,13 +43,14 @@
                     android:textColor="#054949"
                     android:textSize="25sp" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/tv_btn_dark_mode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/black" />
+                <ImageView
+                    android:id="@+id/tv_share_to_others"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:title="Share"
+                    android:showAsAction="ifRoom"
+                    app:srcCompat="@drawable/baseline_share_24" />
 
             </LinearLayout>
 

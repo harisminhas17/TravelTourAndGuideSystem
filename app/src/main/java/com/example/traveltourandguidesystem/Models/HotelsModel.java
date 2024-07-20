@@ -15,36 +15,9 @@ public class HotelsModel implements Parcelable {
     int province_id;
     float latitude;
     float longitude;
-
     int rating;
-
     String address;
-
     ArrayList<ImageModel> images;
-
-    public ArrayList<ImageModel> getImages() {
-        return images;
-    }
-
-    public void setImages(ArrayList<ImageModel> images) {
-        this.images = images;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public int getId() {
         return id;
@@ -102,6 +75,30 @@ public class HotelsModel implements Parcelable {
         this.longitude = longitude;
     }
 
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public ArrayList<ImageModel> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<ImageModel> images) {
+        this.images = images;
+    }
+
     protected HotelsModel(Parcel in) {
         id = in.readInt();
         name = in.readString();
@@ -110,6 +107,9 @@ public class HotelsModel implements Parcelable {
         province_id = in.readInt();
         latitude = in.readFloat();
         longitude = in.readFloat();
+        rating = in.readInt();
+        address = in.readString();
+        images = in.createTypedArrayList(ImageModel.CREATOR);
     }
 
     public static final Creator<HotelsModel> CREATOR = new Creator<HotelsModel>() {
@@ -138,5 +138,8 @@ public class HotelsModel implements Parcelable {
         dest.writeInt(province_id);
         dest.writeFloat(latitude);
         dest.writeFloat(longitude);
+        dest.writeInt(rating);
+        dest.writeString(address);
+        dest.writeTypedList(images);
     }
 }

@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".Activities.TransportationDetailActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +17,7 @@
         android:padding="15dp">
 
         <ImageView
-            android:id="@+id/back_4"
+            android:id="@+id/back_5"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_back" />
@@ -29,7 +30,7 @@
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:layout_marginRight="25dp"
-            android:text="Transportation"
+            android:text="Transportation Details"
             android:textColor="@color/colorPrimary"
             android:textSize="25sp" />
 
@@ -39,11 +40,12 @@
             android:layout_height="30dp"
             android:layout_marginRight="10dp"
             app:srcCompat="@drawable/icbell" />
+
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,24 +54,122 @@
             android:orientation="vertical">
 
             <com.github.islamkhsh.CardSliderViewPager
-                android:id="@+id/slider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/slider"
                 android:layout_marginTop="24dp"
-                app:auto_slide_time="3"
+                app:cardSlider_smallScaleFactor="0.9"
                 app:cardSlider_otherPagesWidth="24dp"
                 app:cardSlider_pageMargin="12dp"
-                app:cardSlider_smallScaleFactor="0.9" />
+                app:auto_slide_time="3" />
+
+            <View
+                android:id="@+id/view23"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <TextView
-                android:id="@+id/tv_d_t_name"
+                android:id="@+id/tv_t_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Honda Civic"
-                android:textColor="#000000"
+                android:textColor="#00574B"
                 android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tv_t_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/black"
+                android:text="Type: Sedan" />
+
+
+            <TextView
+                android:id="@+id/tv_t_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/black"
+
+                android:text="Color: White" />
+
+            <TextView
+                android:id="@+id/tv_t_p_n"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif"
+                android:text="Number Plate: ABC123" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Model"
+                android:textColor="#054949"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tv_t_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/black"
+                android:text="1999" />
+
+
+            <View
+                android:id="@+id/view25"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/tv_t_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_gravity="center"
+                android:text="@string/terms_conditions"
+                android:textColor="#054949"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_t_terms_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:textColor="@color/teal_700"
+                android:text="Must read the terms and conditions before confirmation and move to the next step \n If you pay amount in advance for the transportation booking.\n And you canceled the booking of the transportation then 5% cut from the advance payment and remaining amount is refunded to your account\n If you are unable to pick the confirmation call within 15minutes after the tour confirmation then your transportation booking is canceled.\n Make sure the confirmation of the transportation within given time\n THANKS ENJOY YOUR TOUR'S WITH US :)"></TextView>
+
+            <View
+                android:id="@+id/view26"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+
+            <Button
+                android:id="@+id/tv_t_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_round"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Confirm"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 

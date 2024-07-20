@@ -18,7 +18,7 @@ public interface APIInterface {
 
     @POST("updateProfile")
     @FormUrlEncoded
-    Call<Object> updateProfile(@Field("name") String name, @Field("email") String email, @Field("password") String password);
+    Call<Object> updateProfile(@Field("name") String name, @Field("email") String email, @Field("password") String password, @Field("address") String address);
 
     @POST("sendOTP")
     @FormUrlEncoded
@@ -43,13 +43,16 @@ public interface APIInterface {
     @GET("showAllPlaces")
     Call<Object> showAllPlaces();
 
-    @GET("showAllHotels")
-    Call<Object> showAllHotels();
+    @GET("searchPlaces")
+    Call<Object> searchPlaces(@Query("query") String query);
+
+    @GET("getHotelbyCityid")
+    Call<Object> getHotelbyCityid(@Query("city_id") int city_id);
 
     @GET("findGuiderByCityid")
     Call<Object> findGuiderByCityid(@Query("city_id") int city_id);
 
-    @GET("findTransportationByCityid")
+    @GET("findTransportationbyCityid")
     Call<Object> findTransportationByCityid(@Query("city_id") int city_id);
 
     @GET("showAllNotifications")
@@ -62,6 +65,5 @@ public interface APIInterface {
     @POST("deleteUser")
     @FormUrlEncoded
     Call<Object> deleteUser(@Query("id") int id, @Field("password") String password);
-
 
 }

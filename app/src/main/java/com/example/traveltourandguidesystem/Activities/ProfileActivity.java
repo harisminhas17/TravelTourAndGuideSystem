@@ -1,5 +1,6 @@
 package com.example.traveltourandguidesystem.Activities;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -35,12 +36,13 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView back_btn;
     EditText tv_name;
     EditText tv_email;
-    EditText tv_location, tv_password;
+    EditText tv_address, tv_password;
     ImageView tv_profile_support_btn;
     Button btn_done_profile;
     CircleImageView tv_pic;
     FloatingActionButton floatingActionButton3;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         tv_name = findViewById(R.id.tv_name);
         tv_email = findViewById(R.id.tv_email);
-        tv_location = findViewById(R.id.tv_location);
+        tv_address = findViewById(R.id.tv_address);
         tv_password = findViewById(R.id.tv_password);
         tv_profile_support_btn = findViewById(R.id.tv_profile_support_btn);
         back_btn = findViewById(R.id.back_btn);
@@ -61,14 +63,19 @@ public class ProfileActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(ProfileActivity.this);
         progressDialog.setCancelable(true);
-        String email, name, password;
+
+        String email, name, password, address;
         SharedPref sharedPref = new SharedPref();
         email = sharedPref.getEmailData(ProfileActivity.this);
         name = sharedPref.getNameData(ProfileActivity.this);
         password = sharedPref.getpassword(ProfileActivity.this);
+        address = sharedPref.getaddressData(ProfileActivity.this);
+
         tv_name.setText(name);
         tv_email.setText(email);
         tv_password.setText(password);
+        tv_address.setText(address);
+
         tv_profile_support_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,22 +105,25 @@ public class ProfileActivity extends AppCompatActivity {
                 String name = tv_name.getText().toString().trim();
                 String email = tv_email.getText().toString().trim();
                 String password = tv_password.getText().toString().trim();
+                String address = tv_address.getText().toString().trim();
                 if (name.length() < 2) {
                     Toast.makeText(ProfileActivity.this, "Name Must Be Valid", Toast.LENGTH_SHORT).show();
                 } else if (password.length() < 3) {
                     Toast.makeText(ProfileActivity.this, "Password Must Be Greater Then 3 Characters", Toast.LENGTH_SHORT).show();
+                } else if (address.length() < 3) {
+                    Toast.makeText(ProfileActivity.this, "Enter Your Correct Address", Toast.LENGTH_SHORT).show();
                 } else {
-                    updateProfile(name, email, password);
+                    updateProfile(name, email, password, address);
                 }
             }
         });
     }
 
-    private void updateProfile(String name, String email, String password) {
+    private void updateProfile(String name, String email, String password, String address) {
         progressDialog.setMessage("Updating Your Profile...");
         progressDialog.show();
         ApiClient apiClient = new ApiClient();
-        Call<Object> responseCall = apiClient.getClient(ProfileActivity.this).create(APIInterface.class).updateProfile(name, email, password);
+        Call<Object> responseCall = apiClient.getClient(ProfileActivity.this).create(APIInterface.class).updateProfile(name, email, password, address);
         responseCall.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
@@ -129,7 +139,9 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(ProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
                         String name = jsonObject.getJSONObject("user").getString("name");
                         int id = jsonObject.getJSONObject("user").getInt("id");
+
                         new SharedPref().saveLoginData(ProfileActivity.this, name, email, password, id);
+
                         startActivity(new Intent(ProfileActivity.this, MainActivity.class));
                         finish();
                     }

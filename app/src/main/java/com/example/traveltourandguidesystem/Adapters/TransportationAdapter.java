@@ -48,7 +48,9 @@ public class TransportationAdapter extends RecyclerView.Adapter<TransportationAd
 
         viewHolder.tv_v_type.setText(transporationModel.getVehicle_type());
 
-        viewHolder.tv_v_plate.setText(transporationModel.getVehicle_number_plate());
+        viewHolder.tv_v_plate.setText(transporationModel.getVehicle_plate_number());
+
+        viewHolder.tv_v_model.setText(transporationModel.getVehicle_model());
 
         //ToDo link other objects here
 
@@ -75,6 +77,7 @@ public class TransportationAdapter extends RecyclerView.Adapter<TransportationAd
         TextView tv_v_color;
         TextView tv_v_type;
         TextView tv_v_plate;
+        TextView tv_v_model;
 
 
         TransportationViewHolder(View itemView) {
@@ -85,6 +88,7 @@ public class TransportationAdapter extends RecyclerView.Adapter<TransportationAd
             tv_v_color = itemView.findViewById(R.id.tv_v_color);
             tv_v_type = itemView.findViewById(R.id.tv_v_type);
             tv_v_plate = itemView.findViewById(R.id.tv_v_plate);
+            tv_v_model = itemView.findViewById(R.id.tv_v_model);
 
         }
     }

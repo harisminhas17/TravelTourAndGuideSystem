@@ -28,9 +28,8 @@ public class AlbumsFragment extends Fragment {
 
     ImageView tv_back_albums_btn;
     ImageView tv_albums_notify_btn;
-    TextView albums_photos, albums_story, create_albums, share_exp, tv_community, ask_questions;
+    TextView albums_photos, albums_story, create_albums, tv_community, ask_questions, albums_share_exp;
     private Context context;
-
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -81,7 +80,7 @@ public class AlbumsFragment extends Fragment {
         albums_photos = view.findViewById(R.id.albums_photos);
         albums_story = view.findViewById(R.id.albums_story);
         create_albums = view.findViewById(R.id.create_albums);
-        share_exp = view.findViewById(R.id.share_exp);
+        albums_share_exp = view.findViewById(R.id.albums_share_exp);
         tv_community = view.findViewById(R.id.tv_community);
         ask_questions = view.findViewById(R.id.ask_questions);
     }
@@ -117,12 +116,6 @@ public class AlbumsFragment extends Fragment {
                 startActivity(new Intent(context, AlbumsCreateAlbumsActivity.class));
             }
         });
-        share_exp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context, AlbumsShareExpActivity.class));
-            }
-        });
         tv_community.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,6 +126,12 @@ public class AlbumsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(context, AlbumsAskQuestionActivity.class));
+            }
+        });
+        albums_share_exp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, AlbumsShareExpActivity.class));
             }
         });
     }

@@ -72,128 +72,143 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"></View>
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/tv_select_photos"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bars_grey_rounded"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Select Place"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_select_photos_line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your Photos will be uploaded to this place."
-            android:textSize="10sp"
-            android:singleLine="true"
-            android:layout_marginLeft="16dp">
+            <EditText
+                android:id="@+id/tv_select_photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bars_grey_rounded"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:hint="Place Name"
+                android:singleLine="true"
+                android:textColor="@color/teal_700"
+                android:textColorHint="@color/black"
+                android:textSize="12sp" />
 
-        </TextView>
+            <TextView
+                android:id="@+id/tv_select_photos_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Photos will be uploaded to this place."
+                android:textSize="10sp"
+                android:singleLine="true"
+                android:layout_marginLeft="16dp">
 
-        <EditText
-            android:id="@+id/tv_captions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bars_grey_rounded"
-            android:drawablePadding="10dp"
-            android:singleLine="true"
-            android:fontFamily="@font/poppins_bold"
-            android:hint="Caption"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textColorHint="@color/black"
-            android:textColor="@color/colorPrimary"
-            android:enabled="false"
-            android:textSize="12sp" />
+            </TextView>
 
-        <TextView
-            android:id="@+id/tv_select_photos_line2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add  caption for your photos."
-            android:textSize="10sp"
-            android:singleLine="true"
-            android:layout_marginLeft="16dp">
+            <EditText
+                android:id="@+id/tv_captions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bars_grey_rounded"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Caption"
+                android:gravity="center"
+                android:minLines="3"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:textColorHint="@color/black"
+                android:textColor="@color/teal_700"
+                android:textSize="12sp" />
 
-        </TextView>
+            <TextView
+                android:id="@+id/tv_select_photos_line2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add  caption for your photos."
+                android:textSize="10sp"
+                android:singleLine="true"
+                android:layout_marginLeft="16dp">
 
+            </TextView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_Support"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/image_item" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
 
+            </View>
 
-        <TextView
-            android:id="@+id/tv_select_photos_line3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upload photos relevant to this place only."
-            android:textSize="10sp"
-            android:singleLine="true"
-            android:layout_gravity="center">
-
-        </TextView>
-
-        <Button
-            android:id="@+id/tv_image_select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_round"
-            android:text="Choose Images"
-            android:textSize="10sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/ic_launcher_background"></Button>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_albums_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/image_item" />
 
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_select_photos_line3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload photos relevant to this place only."
+                android:textSize="10sp"
+                android:singleLine="true"
+                android:layout_gravity="center">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/tv_image_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_round"
+                android:text="Choose Images"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/ic_launcher_background"></Button>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tv_albums_add_photos_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_round"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Cancel"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textSize="14sp">
+
+                </Button>
+
+                <ImageView
+                    android:id="@+id/tv_albums_add_photos_upload"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/orange_upload"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/upload_button"></ImageView>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="right"
-        android:orientation="horizontal">
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/tv_albums_add_photos_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_round"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Cancel"
-            android:textColor="@color/ic_launcher_background"
-            android:textSize="14sp">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"></View>
 
-        </Button>
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/tv_albums_add_photos_upload"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/orange_upload"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/upload_button">
+    </ScrollView>
 
-        </ImageView>
-    </LinearLayout>
+
 </LinearLayout>

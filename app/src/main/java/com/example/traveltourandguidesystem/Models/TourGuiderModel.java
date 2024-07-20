@@ -3,27 +3,51 @@ package com.example.traveltourandguidesystem.Models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 public class TourGuiderModel implements Parcelable {
     int id;
-    String name;
     int city_id;
-    int phone_number;
-    int experience;
+    String name;
+    String phone_number;
+    String experience;
     String about;
-    String image;
+    int rating;
     String address;
+    String image;
+    String price;
+    String languages;
 
     protected TourGuiderModel(Parcel in) {
         id = in.readInt();
-        name = in.readString();
         city_id = in.readInt();
-        phone_number = in.readInt();
-        experience = in.readInt();
+        name = in.readString();
+        phone_number = in.readString();
+        experience = in.readString();
         about = in.readString();
+        rating = in.readInt();
         address = in.readString();
         image = in.readString();
+        price = in.readString();
+        languages = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(city_id);
+        dest.writeString(name);
+        dest.writeString(phone_number);
+        dest.writeString(experience);
+        dest.writeString(about);
+        dest.writeInt(rating);
+        dest.writeString(address);
+        dest.writeString(image);
+        dest.writeString(price);
+        dest.writeString(languages);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<TourGuiderModel> CREATOR = new Creator<TourGuiderModel>() {
@@ -46,14 +70,6 @@ public class TourGuiderModel implements Parcelable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getCity_id() {
         return city_id;
     }
@@ -62,19 +78,27 @@ public class TourGuiderModel implements Parcelable {
         this.city_id = city_id;
     }
 
-    public int getPhone_number() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
-    public int getExperience() {
+    public String getExperience() {
         return experience;
     }
 
-    public void setExperience(int experience) {
+    public void setExperience(String experience) {
         this.experience = experience;
     }
 
@@ -86,12 +110,12 @@ public class TourGuiderModel implements Parcelable {
         this.about = about;
     }
 
-    public String getImage() {
-        return image;
+    public int getRating() {
+        return rating;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getAddress() {
@@ -102,20 +126,28 @@ public class TourGuiderModel implements Parcelable {
         this.address = address;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getImage() {
+        return image;
     }
 
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(name);
-        dest.writeInt(city_id);
-        dest.writeInt(phone_number);
-        dest.writeInt(experience);
-        dest.writeString(about);
-        dest.writeString(address);
-        dest.writeString(image);
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String languages) {
+        this.languages = languages;
     }
 }
+

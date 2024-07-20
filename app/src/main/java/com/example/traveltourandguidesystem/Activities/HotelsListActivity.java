@@ -28,14 +28,11 @@ import retrofit2.Response;
 
 public class HotelsListActivity extends AppCompatActivity {
 
-    int city_id;
-
+    static int city_id;
     RecyclerView recyclerView_top;
     Button tv_hotel_skip;
-
     ArrayList<HotelsModel> hotelsModels = new ArrayList<>();
     private Context context;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +42,7 @@ public class HotelsListActivity extends AppCompatActivity {
         context = HotelsListActivity.this;
         recyclerView_top = findViewById(R.id.recyclerView_top);
         tv_hotel_skip = findViewById(R.id.tv_hotel_skip);
+
         city_id = getIntent().getIntExtra("city_id", 0);
 
         tv_hotel_skip.setOnClickListener(new View.OnClickListener() {
@@ -58,12 +56,12 @@ public class HotelsListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        showAllHotels();
+        getHotelbyCityid();
     }
 
-    private void showAllHotels() {
+    private void getHotelbyCityid() {
         ApiClient apiClient = new ApiClient();
-        Call<Object> responseCall = apiClient.getClient(context).create(APIInterface.class).showAllHotels();
+        Call<Object> responseCall = apiClient.getClient(context).create(APIInterface.class).getHotelbyCityid(city_id);
         responseCall.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {

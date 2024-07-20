@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.traveltourandguidesystem.Fragments.AlbumsFragment;
 import com.example.traveltourandguidesystem.R;
 
 public class AlbumsTravelerFeedCommunityActivity extends AppCompatActivity {
@@ -27,7 +26,7 @@ public class AlbumsTravelerFeedCommunityActivity extends AppCompatActivity {
         tv_traveler_c_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AlbumsTravelerFeedCommunityActivity.this, AlbumsFragment.class));
+                onBackPressed();
             }
         });
         tv_traveler_notify.setOnClickListener(new View.OnClickListener() {

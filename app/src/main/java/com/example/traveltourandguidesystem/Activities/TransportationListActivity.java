@@ -30,18 +30,18 @@ public class TransportationListActivity extends AppCompatActivity {
     RecyclerView recyclerView_top;
     Button tv_v_skip;
     private Context context;
-    int city_id;
-
-
-    ArrayList<TransporationModel> transporationModel = new ArrayList<>();
-
+    static int city_id;
+    ArrayList<TransporationModel> transporationModels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+
         setContentView(R.layout.activity_transportation_list);
+
         city_id = getIntent().getIntExtra("city_id", 0);
+
         recyclerView_top = findViewById(R.id.recyclerView_top);
         tv_v_skip = findViewById(R.id.tv_v_skip);
         context = TransportationListActivity.this;
@@ -58,16 +58,16 @@ public class TransportationListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        findTransportationByCityid();
+        findTransportationbyCityid();
     }
 
-    private void findTransportationByCityid() {
+    private void findTransportationbyCityid() {
         ApiClient apiClient = new ApiClient();
         Call<Object> responseCall = apiClient.getClient(context).create(APIInterface.class).findTransportationByCityid(city_id);
         responseCall.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
-                transporationModel.clear();
+                transporationModels.clear();
                 try {
                     JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
                     boolean error = jsonObject.getBoolean("error");
@@ -75,16 +75,15 @@ public class TransportationListActivity extends AppCompatActivity {
                         JSONArray records = jsonObject.getJSONArray("records");
                         for (int i = 0; i < records.length(); i++) {
                             TransporationModel transporationModel = new Gson().fromJson(records.get(i).toString(), TransporationModel.class);
-                            transporationModel.add(transporationModel);
+                            transporationModels.add(transporationModel);
                         }
-                        TransportationAdapter transportationAdapter = new TransportationAdapter(transporationModel, context, false);
+                        TransportationAdapter transportationAdapter = new TransportationAdapter(transporationModels, context, false);
                         recyclerView_top.setAdapter(transportationAdapter);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-
 
             @Override
             public void onFailure(Call<Object> call, Throwable throwable) {

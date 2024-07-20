@@ -14,4 +14,6 @@
     <string name="share" />
 
     <string name="google_maps_key">AIzaSyAoedC95vgOOAeAAO9M2SrgujTYlE5V22c</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

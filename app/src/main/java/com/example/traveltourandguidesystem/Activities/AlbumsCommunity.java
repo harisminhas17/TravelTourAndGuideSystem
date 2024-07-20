@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.traveltourandguidesystem.Fragments.AlbumsFragment;
 import com.example.traveltourandguidesystem.R;
 
 public class AlbumsCommunity extends AppCompatActivity {
@@ -26,7 +25,7 @@ public class AlbumsCommunity extends AppCompatActivity {
         tv_c_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AlbumsCommunity.this, AlbumsFragment.class));
+                onBackPressed();
             }
         });
         tv_c_notify.setOnClickListener(new View.OnClickListener() {

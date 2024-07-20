@@ -34,17 +34,20 @@ public class GuiderAdapter extends RecyclerView.Adapter<GuiderAdapter.GuiderView
     @Override
     public GuiderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        return new GuiderViewHolder(inflater.inflate(R.layout.hotel_item, parent, false));
+        return new GuiderViewHolder(inflater.inflate(R.layout.guider_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(final GuiderViewHolder viewHolder, int position) {
+
         TourGuiderModel tourGuiderModel = list.get(position);
-        viewHolder.tv_name.setText(tourGuiderModel.getName());
 
-        viewHolder.tv_address.setText(tourGuiderModel.getAddress());
+        viewHolder.tv_name_guide.setText(tourGuiderModel.getName());
 
-//        viewHolder.tv_rating.setText(hotelsModel.getRating());
+        viewHolder.tv_address_guide.setText(tourGuiderModel.getAddress());
+
+//        viewHolder.tv_rating_guide.settext(tourGuiderModel.getRating());
+
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,19 +71,20 @@ public class GuiderAdapter extends RecyclerView.Adapter<GuiderAdapter.GuiderView
     public class GuiderViewHolder extends RecyclerView.ViewHolder {
         View view;
         ImageView imageView;
-        TextView tv_name;
-        TextView tv_address;
-        TextView tv_rating;
+        TextView tv_name_guide;
+        TextView tv_address_guide;
+        TextView tv_rating_guide;
+        TextView tv_g_exp;
 
 
         GuiderViewHolder(View itemView) {
             super(itemView);
             view = itemView;
             imageView = itemView.findViewById(R.id.imageview);
-            tv_name = itemView.findViewById(R.id.tv_name);
-            tv_address = itemView.findViewById(R.id.tv_address_hotel);
-            tv_rating = itemView.findViewById(R.id.tv_rating_hotel);
-
+            tv_name_guide = itemView.findViewById(R.id.tv_name_guide);
+            tv_address_guide = itemView.findViewById(R.id.tv_address_guide);
+            tv_rating_guide = itemView.findViewById(R.id.tv_rating_guide);
+            tv_g_exp = itemView.findViewById(R.id.tv_g_exp);
         }
     }
 

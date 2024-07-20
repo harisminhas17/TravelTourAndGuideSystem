@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,16 +40,21 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsView
 
     @Override
     public void onBindViewHolder(final HotelsViewHolder viewHolder, int position) {
+
+        viewHolder.itemView.startAnimation(AnimationUtils.loadAnimation(viewHolder.itemView.getContext(), R.anim.animone));
+
         HotelsModel hotelsModel = list.get(position);
+
         viewHolder.tv_name.setText(hotelsModel.getName());
 
         viewHolder.tv_address.setText(hotelsModel.getAddress());
 
 //        viewHolder.tv_rating.setText(hotelsModel.getRating());
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, HotelDetailActivity.class).putExtra("hotelmodels", hotelsModel));
+                context.startActivity(new Intent(context, HotelDetailActivity.class).putExtra("hotelmodel", hotelsModel));
             }
         });
 
@@ -63,6 +69,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsView
             // For example, you might want to load a default image or log an error
         }
     }
+
 
     public class HotelsViewHolder extends RecyclerView.ViewHolder {
         View view;
@@ -83,6 +90,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsView
         }
     }
 
+
     @Override
     public int getItemCount() {
         return list.size();
@@ -92,5 +100,4 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsView
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
-
 } 

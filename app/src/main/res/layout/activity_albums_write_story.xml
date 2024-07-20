@@ -67,134 +67,142 @@
         android:text="Write Story"
         android:textColor="#326969" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/tv_captions"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bars_grey_rounded"
-            android:drawablePadding="10dp"
-            android:singleLine="true"
-            android:fontFamily="@font/poppins_bold"
-            android:hint="Story Title"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textColorHint="@color/black"
-            android:textColor="@color/colorPrimary"
-            android:enabled="false"
-            android:textSize="12sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_select_photos_line2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Give your story an attractive title"
-            android:textSize="10sp"
-            android:singleLine="true"
-            android:layout_marginLeft="16dp">
+            <EditText
+                android:id="@+id/tv_captions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bars_grey_rounded"
+                android:drawablePadding="10dp"
+                android:singleLine="true"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Story Title"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:textColorHint="@color/black"
+                android:textColor="@color/teal_700"
+                android:textSize="12sp" />
 
-        </TextView>
+            <TextView
+                android:id="@+id/tv_select_photos_line2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Give your story an attractive title"
+                android:textSize="10sp"
+                android:singleLine="true"
+                android:layout_marginLeft="16dp">
 
-
-        <EditText
-            android:id="@+id/tv_story_place"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bars_grey_rounded"
-            android:drawablePadding="10dp"
-            android:singleLine="true"
-            android:fontFamily="@font/poppins_bold"
-            android:hint="Select Place"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textColorHint="@color/black"
-            android:textColor="@color/colorPrimary"
-            android:enabled="false"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tv_select_place"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="The Place this story is about"
-            android:textSize="10sp"
-            android:singleLine="true"
-            android:layout_marginLeft="16dp"></TextView>
-
-        <EditText
-            android:id="@+id/tv_write_story_here"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bars_grey_rounded"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Write Story Here..."
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:minLines="8"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
+            </TextView>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_Support"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/image_item" />
+            <EditText
+                android:id="@+id/tv_story_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bars_grey_rounded"
+                android:drawablePadding="10dp"
+                android:singleLine="true"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Place Name"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:textColorHint="@color/black"
+                android:textColor="@color/teal_700"
+                android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/tv_write_story_line4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Attach an attractive photo with your story"
-            android:textSize="10sp"
-            android:singleLine="true"
-            android:layout_gravity="center"></TextView>
+            <TextView
+                android:id="@+id/tv_select_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Place this story is about"
+                android:textSize="10sp"
+                android:singleLine="true"
+                android:layout_marginLeft="16dp"></TextView>
+
+            <EditText
+                android:id="@+id/tv_write_story_here"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bars_grey_rounded"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Write Story Here..."
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:minLines="5"
+                android:textColorHint="@color/black"
+                android:textColor="@color/teal_700"
+                android:textSize="12sp" />
 
 
-        <Button
-            android:id="@+id/tv_image_select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_round"
-            android:text="Choose Images"
-            android:textSize="10sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/ic_launcher_background"></Button>
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_story"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/image_item" />
+
+            <TextView
+                android:id="@+id/tv_write_story_line4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attach an attractive photo with your story"
+                android:textSize="10sp"
+                android:singleLine="true"
+                android:layout_gravity="center"></TextView>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="right"
-        android:orientation="horizontal">
+            <Button
+                android:id="@+id/tv_image_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_round"
+                android:text="Choose Images"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/ic_launcher_background">
 
-        <Button
-            android:id="@+id/tv_write_story_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_round"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Cancel"
-            android:textColor="@color/ic_launcher_background"
-            android:textSize="14sp"></Button>
+            </Button>
 
-        <ImageView
-            android:id="@+id/tv_write_story_upload"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/orange_upload"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/upload_button"></ImageView>
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tv_write_story_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_round"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Cancel"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textSize="14sp"></Button>
+
+                <ImageView
+                    android:id="@+id/tv_write_story_upload"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/orange_upload"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/upload_button"></ImageView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>

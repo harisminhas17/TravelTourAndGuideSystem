@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.traveltourandguidesystem.Activities.EmergencyDetailActivity;
 import com.example.traveltourandguidesystem.Activities.NotificationActivity;
 import com.example.traveltourandguidesystem.Activities.ProfileActivity;
+import com.example.traveltourandguidesystem.Activities.SearchActivity;
 import com.example.traveltourandguidesystem.Adapters.PlacesAdapter;
 import com.example.traveltourandguidesystem.Helper.APIInterface;
 import com.example.traveltourandguidesystem.Helper.ApiClient;
@@ -42,9 +42,8 @@ import retrofit2.Response;
  */
 public class HomeFragment extends Fragment {
 
-    SearchView tv_search_bar;
-    ImageView notify_btn;
 
+    ImageView notify_btn, tv_search_bar;
     ImageView emg_btn;
     ImageView profile_btn;
     RecyclerView recyclerView_top;
@@ -133,6 +132,12 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(context, EmergencyDetailActivity.class));
             }
         });
+        tv_search_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, SearchActivity.class));
+            }
+        });
     }
 
     private void showAllPlaces() {
@@ -159,15 +164,11 @@ public class HomeFragment extends Fragment {
                         recyclerView.setAdapter(placesAdapter2);
                         PlacesAdapter placesAdapter3 = new PlacesAdapter(placesModels, context, true);
                         recyclerView_all.setAdapter(placesAdapter3);
-
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-
-
             @Override
             public void onFailure(Call<Object> call, Throwable throwable) {
                 progressDialog.dismiss();
