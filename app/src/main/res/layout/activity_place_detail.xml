@@ -194,6 +194,87 @@
 
             </LinearLayout>
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="About Tour Guide"
+                android:textColor="#054949"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_p_d_tour_guide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/baseline_person_search_24"
+                    android:text="Tour Guide Information" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="About Tour Transportation"
+                android:textColor="#054949"
+                android:textSize="16sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_p_d_transport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/baseline_emoji_transportation_24"
+                    android:text="Transportation Information" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Give us Review"
+                android:textColor="#054949"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_p_d_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/baseline_tour_24"
+                    android:text="Review Your Tour" />
+            </LinearLayout>
+
+
             <View
                 android:id="@+id/view23"
                 android:layout_width="match_parent"

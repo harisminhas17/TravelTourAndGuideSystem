@@ -16,11 +16,7 @@
         android:layout_marginTop="25dp"
         android:padding="15dp">
 
-        <ImageView
-            android:id="@+id/tv_confirm_back_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/ic_back" />
+
 
         <TextView
             android:id="@+id/confirmation"
@@ -29,7 +25,6 @@
             android:gravity="center"
             android:layout_weight="1"
             android:fontFamily="@font/poppins_bold"
-            android:layout_marginRight="30dp"
             android:text="Confirmation"
             android:textColor="@color/colorPrimary"
             android:textSize="25sp" />
@@ -42,7 +37,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="center"
@@ -57,7 +52,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:layout_marginTop="10dp"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:text="Congratulations Your Tour Has Been Confirmed"
             android:textSize="16sp"></TextView>
 
@@ -67,14 +62,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:text="Thank you for your tour booking with us.\n You will receive shortly confirmation email "
             android:textSize="16sp"></TextView>
 
 
         <Button
+            android:id="@+id/tv_user_review_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/support_message_rounded"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Review Our App"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="16sp" />
+
+        <Button
             android:id="@+id/tv_explore_more_btn"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_round"

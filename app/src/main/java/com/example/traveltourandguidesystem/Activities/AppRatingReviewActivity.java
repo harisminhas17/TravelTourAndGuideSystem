@@ -6,36 +6,36 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.traveltourandguidesystem.R;
 
-public class UserReviewsActivity extends AppCompatActivity {
+public class AppRatingReviewActivity extends AppCompatActivity {
     ImageView tv_reviews_btn;
     Button tv_rating_submit;
-
-    View ratingBar, ratingBar_1, ratingBar_3, ratingBar_4, ratingBar_5;
+    View ratingBar_5;
     private Context context;
+
+    EditText tv_review_message;
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_reviews);
+        setContentView(R.layout.activity_app_rating_review);
+
         getSupportActionBar().hide();
 
         tv_reviews_btn = findViewById(R.id.tv_reviews_btn);
         tv_rating_submit = findViewById(R.id.tv_rating_submit);
-        ratingBar = findViewById(R.id.ratingBar);
-        ratingBar_1 = findViewById(R.id.ratingBar_1);
-        ratingBar_3 = findViewById(R.id.ratingBar_3);
-        ratingBar_4 = findViewById(R.id.ratingBar_4);
+        tv_review_message = findViewById(R.id.tv_review_message);
         ratingBar_5 = findViewById(R.id.ratingBar_5);
 
 
-        context = UserReviewsActivity.this;
+        context = AppRatingReviewActivity.this;
 
         tv_reviews_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +43,8 @@ public class UserReviewsActivity extends AppCompatActivity {
                 startActivity(new Intent(context, MainActivity.class));
             }
         });
+
+
         tv_rating_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

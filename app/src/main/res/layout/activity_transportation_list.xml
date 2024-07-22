@@ -22,9 +22,9 @@
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/poppins_bold"
             android:layout_weight="1"
-            android:text="Choose Transportation"
+            android:text="Available Transport"
             android:textColor="#000000"
-            android:textSize="23sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button

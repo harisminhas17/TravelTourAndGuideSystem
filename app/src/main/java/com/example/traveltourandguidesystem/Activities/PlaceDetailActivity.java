@@ -1,5 +1,6 @@
 package com.example.traveltourandguidesystem.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +27,10 @@ public class PlaceDetailActivity extends AppCompatActivity {
     ImageView notify_btn;
     ImageView back_4;
 
+    TextView tv_p_d_tour_guide, tv_p_d_transport, tv_p_d_review;
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -46,6 +50,15 @@ public class PlaceDetailActivity extends AppCompatActivity {
         tv_visited = findViewById(R.id.tv_visited);
         tv_mark = findViewById(R.id.tv_mark);
 
+        tv_p_d_transport = findViewById(R.id.tv_p_d_transport);
+        tv_p_d_tour_guide = findViewById(R.id.tv_p_d_tour_guide);
+        tv_p_d_review = findViewById(R.id.tv_p_d_review);
+        tv_p_d_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PlaceDetailActivity.this, ReviewActivity.class));
+            }
+        });
 
         tv_book_tour.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +84,21 @@ public class PlaceDetailActivity extends AppCompatActivity {
                 HelperMethods.openGoogleMap(context, placesModel.getLatitude(), placesModel.getLongitude());
             }
         });
+
+        tv_p_d_tour_guide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, TourGuideListActivity.class).putExtra("city_id", placesModel.getCity_id()));
+            }
+        });
+
+        tv_p_d_transport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, TransportationListActivity.class).putExtra("city_id", placesModel.getCity_id()));
+            }
+        });
+
 
         tv_visited.setOnClickListener(new View.OnClickListener() {
             @Override

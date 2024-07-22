@@ -118,6 +118,271 @@
                 android:text="P2GW+R88, Street 11, E-7, Islamabad, Islamabad Capital Territory" />
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="About"
+                android:textColor="#054949"
+                android:textSize="16sp">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/tv_h_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="sans-serif"
+                android:padding="5dp"
+                android:text="P2GW+R88, Street 11, E-7, Islamabad, Islamabad Capital Territory" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Facilities"
+                android:textColor="#054949"
+                android:textSize="16sp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tv_h_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginRight="60dp"
+                    android:drawableTop="@drawable/baseline_wifi_24"
+                    android:textColor="@color/black"
+                    android:text="Wifi: Null" />
+
+
+                <TextView
+                    android:id="@+id/tv_h_lcd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginRight="30dp"
+                    android:drawableTop="@drawable/baseline_tv_24"
+                    android:textColor="@color/black"
+                    android:text="TV" />
+
+
+                <TextView
+                    android:id="@+id/tv_h_air"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:drawableTop="@drawable/baseline_ac_unit_24"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="40dp"
+                    android:text="AC" />
+
+
+                <TextView
+                    android:id="@+id/tv_h_kitchen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:drawableTop="@drawable/baseline_kitchen_24"
+                    android:layout_marginLeft="70dp"
+                    android:textColor="@color/black"
+                    android:text="Kitchen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_h_breakfast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:drawableTop="@drawable/baseline_free_breakfast_24"
+                    android:textColor="@color/black"
+                    android:text="Breakfast" />
+
+                <TextView
+                    android:id="@+id/tv_h_washroom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginLeft="40dp"
+                    android:drawableTop="@drawable/baseline_bathroom_24"
+                    android:textColor="@color/black"
+                    android:text="Bathroom" />
+
+
+                <TextView
+                    android:id="@+id/tv_h_washing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:drawableTop="@drawable/baseline_water_24"
+                    android:layout_marginLeft="40dp"
+                    android:textColor="@color/black"
+                    android:text="Washer" />
+
+                <TextView
+                    android:id="@+id/tv_h_parking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:drawableTop="@drawable/baseline_directions_car_24"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="40dp"
+                    android:text="Parking" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Food"
+                android:textColor="#054949"
+                android:textSize="16sp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tv_h_pak_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:drawableTop="@drawable/baseline_food_bank_24"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/black"
+                    android:text="Pakistani Food" />
+
+                <TextView
+                    android:id="@+id/tv_h_chi_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginLeft="40dp"
+                    android:drawableTop="@drawable/baseline_food_bank_24"
+                    android:textColor="@color/black"
+                    android:text="Chinese Food" />
+
+                <TextView
+                    android:id="@+id/tv_h_fast_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginLeft="40dp"
+                    android:drawableTop="@drawable/baseline_fastfood_24"
+                    android:textColor="@color/black"
+                    android:text="Fast Food" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Rooms"
+                android:textColor="#054949"
+                android:textSize="16sp"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_h_single_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif"
+                    android:drawableTop="@drawable/baseline_bedroom_parent_24"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:text="Single Room: Null" />
+
+
+                <TextView
+                    android:id="@+id/tv_h_double_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginTop="20dp"
+                    android:drawableTop="@drawable/baseline_bedroom_parent_24"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:text="Double Room: Null" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Beds"
+                android:textColor="#054949"
+                android:textSize="16sp"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_h_single_bed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginLeft="20dp"
+                    android:drawableTop="@drawable/baseline_single_bed_24"
+                    android:textColor="@color/black"
+                    android:text="Single: Bed" />
+
+                <TextView
+                    android:id="@+id/tv_h_double_bed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginLeft="20dp"
+                    android:drawableTop="@drawable/baseline_king_bed_24"
+                    android:textColor="@color/black"
+                    android:text="Double: Bed" />
+
+            </LinearLayout>
+
+
+            <TextView
                 android:id="@+id/textView37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,6 +432,7 @@
                 android:background="@drawable/button_round"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Book Hotel Now!"
+                android:layout_marginBottom="20dp"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

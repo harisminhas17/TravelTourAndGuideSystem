@@ -231,9 +231,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/button_round"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Confirm"
+                android:text="Next"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

@@ -66,7 +66,7 @@ public class GuiderProfileActivity extends AppCompatActivity {
         tv_g_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, TransportationListActivity.class).putExtra("city_id", tourGuiderModel.getCity_id()));
+//                startActivity(new Intent(context, PlaceDetailActivity.class).putExtra("city_id", tourGuiderModel.getCity_id()));
             }
         });
 

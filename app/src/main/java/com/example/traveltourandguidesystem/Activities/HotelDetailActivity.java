@@ -3,7 +3,6 @@ package com.example.traveltourandguidesystem.Activities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,15 +17,15 @@ import com.example.traveltourandguidesystem.Models.HotelsModel;
 import com.example.traveltourandguidesystem.R;
 import com.github.islamkhsh.CardSliderViewPager;
 
-import java.util.Locale;
-
 public class HotelDetailActivity extends AppCompatActivity {
 
     HotelsModel hotelsModel;
     private Context context;
     ImageView back_5, notify_btn;
     CardSliderViewPager cardSliderViewPager;
-    TextView tv_h_name, tv_h_add, tv_dir, tv_h_d_rating;
+    TextView tv_h_name, tv_h_add, tv_dir, tv_h_d_rating, tv_h_about, tv_h_wifi;
+    TextView tv_h_single_room, tv_h_double_room, tv_h_single_bed, tv_h_double_bed;
+    TextView tv_h_chi_food, tv_h_fast_food;
     Button tv_book_hotel;
 
     @SuppressLint("MissingInflatedId")
@@ -45,6 +44,19 @@ public class HotelDetailActivity extends AppCompatActivity {
         tv_dir = findViewById(R.id.tv_dir);
         tv_h_d_rating = findViewById(R.id.tv_h_d_rating);
         tv_book_hotel = findViewById(R.id.tv_book_hotel);
+        tv_h_about = findViewById(R.id.tv_h_about);
+
+        tv_h_wifi = findViewById(R.id.tv_h_wifi);
+
+        tv_h_single_room = findViewById(R.id.tv_h_single_room);
+        tv_h_double_room = findViewById(R.id.tv_h_double_room);
+
+        tv_h_single_bed = findViewById(R.id.tv_h_single_bed);
+        tv_h_double_bed = findViewById(R.id.tv_h_double_bed);
+
+        tv_h_chi_food = findViewById(R.id.tv_h_chi_food);
+        tv_h_fast_food = findViewById(R.id.tv_h_fast_food);
+
 
         back_5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +73,7 @@ public class HotelDetailActivity extends AppCompatActivity {
         tv_book_hotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, TourGuideListActivity.class).putExtra("city_id", hotelsModel.getCity_id()));
+                startActivity(new Intent(context, BookingTourActivity.class).putExtra("city_id", hotelsModel.getCity_id()));
             }
         });
         tv_dir.setOnClickListener(new View.OnClickListener() {
@@ -80,20 +92,13 @@ public class HotelDetailActivity extends AppCompatActivity {
             cardSliderViewPager.setAdapter(imagesSliderAdapter);
             tv_h_name.setText(hotelsModel.getName());
             tv_h_add.setText(hotelsModel.getAddress());
+            tv_h_about.setText(hotelsModel.getAbout());
+            tv_h_wifi.setText(hotelsModel.getWifi());
+            tv_h_chi_food.setText(hotelsModel.getChinese_food());
+            tv_h_fast_food.setText(hotelsModel.getFast_food());
+            tv_h_single_room.setText(hotelsModel.getSingle_room());
+            tv_h_double_room.setText(hotelsModel.getDouble_room());
         }
     }
 
-    public void googlemap() {
-
-        double latitude = 37.4220;
-        double longitude = -122.0841;
-
-        String url = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=%f,%f", latitude, longitude);
-
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-
-        if (intent.resolveActivity(context.getPackageManager()) != null) {
-            context.startActivity(intent);
-        }
-    }
 }

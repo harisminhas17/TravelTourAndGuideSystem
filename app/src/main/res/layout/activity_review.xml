@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.ReviewActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/tv_reviews_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginRight="30dp"
+            android:text="User Review"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view18"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:text="Help us Improve!"
+        android:textColor="#054949" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:text="your review will help us to give you a better exprience" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="50dp"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#009688">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="How was the tour?"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:enabled="false"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tv_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Tell us More"
+                android:textColor="#00574B"
+                android:textSize="18sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/tv_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/profile_green_rounded"
+                    android:drawableLeft="@drawable/baseline_segment_24"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:hint="Select Item Here"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="12sp" />
+
+
+                <EditText
+                    android:id="@+id/tv_option_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/profile_green_rounded"
+                    android:drawableLeft="@drawable/baseline_segment_24"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:hint="Select Here Place or Hotel"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Rate Your Experience"
+                    android:textColor="#00574B"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RatingBar
+                        android:id="@+id/ratingBar_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:stepSize="0.5"
+                        android:layout_gravity="center" />
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/tv_review_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:hint="Write your review here......"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/review_message_rounded"
+                    android:minLines="8"
+                    android:padding="15dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+
+                <Button
+                    android:id="@+id/tv_rating_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_round"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Submit"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

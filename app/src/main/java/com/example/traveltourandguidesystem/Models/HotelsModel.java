@@ -3,8 +3,6 @@ package com.example.traveltourandguidesystem.Models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 
 public class HotelsModel implements Parcelable {
@@ -17,7 +15,72 @@ public class HotelsModel implements Parcelable {
     float longitude;
     int rating;
     String address;
+    String chinese_food;
+
+    String fast_food;
+    String about;
     ArrayList<ImageModel> images;
+    String wifi;
+
+    String single_room;
+
+    String double_room;
+
+    protected HotelsModel(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        city_id = in.readInt();
+        country_at = in.readInt();
+        province_id = in.readInt();
+        latitude = in.readFloat();
+        longitude = in.readFloat();
+        rating = in.readInt();
+        address = in.readString();
+        chinese_food = in.readString();
+        fast_food = in.readString();
+        about = in.readString();
+        images = in.createTypedArrayList(ImageModel.CREATOR);
+        wifi = in.readString();
+        single_room = in.readString();
+        double_room = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeInt(city_id);
+        dest.writeInt(country_at);
+        dest.writeInt(province_id);
+        dest.writeFloat(latitude);
+        dest.writeFloat(longitude);
+        dest.writeInt(rating);
+        dest.writeString(address);
+        dest.writeString(chinese_food);
+        dest.writeString(fast_food);
+        dest.writeString(about);
+        dest.writeTypedList(images);
+        dest.writeString(wifi);
+        dest.writeString(single_room);
+        dest.writeString(double_room);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<HotelsModel> CREATOR = new Creator<HotelsModel>() {
+        @Override
+        public HotelsModel createFromParcel(Parcel in) {
+            return new HotelsModel(in);
+        }
+
+        @Override
+        public HotelsModel[] newArray(int size) {
+            return new HotelsModel[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -91,6 +154,30 @@ public class HotelsModel implements Parcelable {
         this.address = address;
     }
 
+    public String getChinese_food() {
+        return chinese_food;
+    }
+
+    public void setChinese_food(String chinese_food) {
+        this.chinese_food = chinese_food;
+    }
+
+    public String getFast_food() {
+        return fast_food;
+    }
+
+    public void setFast_food(String fast_food) {
+        this.fast_food = fast_food;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
     public ArrayList<ImageModel> getImages() {
         return images;
     }
@@ -99,47 +186,27 @@ public class HotelsModel implements Parcelable {
         this.images = images;
     }
 
-    protected HotelsModel(Parcel in) {
-        id = in.readInt();
-        name = in.readString();
-        city_id = in.readInt();
-        country_at = in.readInt();
-        province_id = in.readInt();
-        latitude = in.readFloat();
-        longitude = in.readFloat();
-        rating = in.readInt();
-        address = in.readString();
-        images = in.createTypedArrayList(ImageModel.CREATOR);
+    public String getWifi() {
+        return wifi;
     }
 
-    public static final Creator<HotelsModel> CREATOR = new Creator<HotelsModel>() {
-        @Override
-        public HotelsModel createFromParcel(Parcel in) {
-            return new HotelsModel(in);
-        }
-
-        @Override
-        public HotelsModel[] newArray(int size) {
-            return new HotelsModel[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public void setWifi(String wifi) {
+        this.wifi = wifi;
     }
 
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(name);
-        dest.writeInt(city_id);
-        dest.writeInt(country_at);
-        dest.writeInt(province_id);
-        dest.writeFloat(latitude);
-        dest.writeFloat(longitude);
-        dest.writeInt(rating);
-        dest.writeString(address);
-        dest.writeTypedList(images);
+    public String getSingle_room() {
+        return single_room;
+    }
+
+    public void setSingle_room(String single_room) {
+        this.single_room = single_room;
+    }
+
+    public String getDouble_room() {
+        return double_room;
+    }
+
+    public void setDouble_room(String double_room) {
+        this.double_room = double_room;
     }
 }

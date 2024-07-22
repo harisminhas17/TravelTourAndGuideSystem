@@ -14,6 +14,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activities.ReviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.ConfirmationTourActivity"
             android:exported="false" />
         <activity
@@ -83,7 +86,7 @@
             android:name=".Activities.AlbumsAddPhotosActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.UserReviewsActivity"
+            android:name=".Activities.AppRatingReviewActivity"
             android:exported="false" />
         <activity
             android:name=".Activities.ProfileActivity"
