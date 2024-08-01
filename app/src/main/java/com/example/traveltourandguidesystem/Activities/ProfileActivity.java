@@ -137,10 +137,9 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(ProfileActivity.this, "Email Does Not Change", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(ProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
-                        String name = jsonObject.getJSONObject("user").getString("name");
-                        int id = jsonObject.getJSONObject("user").getInt("id");
 
-                        new SharedPref().saveLoginData(ProfileActivity.this, name, email, password, id);
+                        int id = new SharedPref().getid(ProfileActivity.this);
+                        new SharedPref().saveLoginData(ProfileActivity.this, name, email, password, id, address);
 
                         startActivity(new Intent(ProfileActivity.this, MainActivity.class));
                         finish();

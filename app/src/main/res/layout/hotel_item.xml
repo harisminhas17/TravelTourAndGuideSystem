@@ -64,6 +64,17 @@
                     android:textSize="10sp" />
 
                 <TextView
+                    android:id="@+id/tv_price_hotel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text=" Rupees per day"
+                    android:textColor="#000000"
+                    android:textSize="10sp" />
+
+                <TextView
                     android:id="@+id/tv_address_hotel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

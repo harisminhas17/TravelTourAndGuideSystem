@@ -31,8 +31,10 @@ public class SetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_password);
         getSupportActionBar().hide();
+
         et_set_forgot_password=findViewById(R.id.et_set_forgot_password);
         et_done_btn=findViewById(R.id.et_done_btn);
+
         progressDialog = new ProgressDialog(SetPasswordActivity.this);
         progressDialog.setCancelable(true);
         et_done_btn.setOnClickListener(new View.OnClickListener() {

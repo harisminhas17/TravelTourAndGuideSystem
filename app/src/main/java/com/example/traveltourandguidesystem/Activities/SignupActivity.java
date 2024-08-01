@@ -33,6 +33,7 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
         getSupportActionBar().hide();
 
         edit_text_name = findViewById(R.id.edit_text_name);
@@ -53,8 +54,8 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (name.length() < 2) {
                     Toast.makeText(SignupActivity.this, "Enter Your Name First ", Toast.LENGTH_SHORT).show();
-                } else if (email.length() < 5) {
-                    Toast.makeText(SignupActivity.this, "Enter Your Email Now", Toast.LENGTH_SHORT).show();
+                } else if (email.length() < 6) {
+                    Toast.makeText(SignupActivity.this, "Enter Your Email ", Toast.LENGTH_SHORT).show();
                 } else if (password.length() < 2) {
                     Toast.makeText(SignupActivity.this, "Enter Your Password ", Toast.LENGTH_SHORT).show();
                 } else {
@@ -80,8 +81,8 @@ public class SignupActivity extends AppCompatActivity {
                     if (error) {
                         Toast.makeText(SignupActivity.this, "This email already exists", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(SignupActivity.this, "Account Created Verify Your Email", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignupActivity.this,OTPActivity.class).putExtra("email",email).putExtra("next","main"));
+                        Toast.makeText(SignupActivity.this, "Verify Your Email", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SignupActivity.this, OTPActivity.class).putExtra("email", email).putExtra("next", "main"));
                         finish();
                     }
                 } catch (JSONException e) {

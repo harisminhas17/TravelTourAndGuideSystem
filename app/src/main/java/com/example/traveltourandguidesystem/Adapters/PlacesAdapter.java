@@ -59,7 +59,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         viewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, PlaceDetailActivity.class).putExtra("placemodel",placesModel));
+                context.startActivity(new Intent(context, PlaceDetailActivity.class).putExtra("placesModel", placesModel));
             }
         });
 

@@ -3,6 +3,7 @@ package com.example.traveltourandguidesystem.Activities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.traveltourandguidesystem.Adapters.ImagesSliderAdapter;
 import com.example.traveltourandguidesystem.Helper.HelperMethods;
+import com.example.traveltourandguidesystem.Helper.SharedPref;
 import com.example.traveltourandguidesystem.Models.PlacesModel;
 import com.example.traveltourandguidesystem.R;
 import com.github.islamkhsh.CardSliderViewPager;
@@ -53,19 +55,38 @@ public class PlaceDetailActivity extends AppCompatActivity {
         tv_p_d_transport = findViewById(R.id.tv_p_d_transport);
         tv_p_d_tour_guide = findViewById(R.id.tv_p_d_tour_guide);
         tv_p_d_review = findViewById(R.id.tv_p_d_review);
+
+        placesModel = getIntent().getParcelableExtra("placesModel");
         tv_p_d_review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PlaceDetailActivity.this, ReviewActivity.class));
+                startActivity(new Intent(PlaceDetailActivity.this, ReviewActivity.class).putExtra("placesModel", placesModel));
             }
         });
 
         tv_book_tour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, HotelsListActivity.class).putExtra("city_id", placesModel.getCity_id()));
+
+                // Get tour guider price
+                SharedPreferences tourGuidePrefs = getSharedPreferences("TourGuidePrefs", Context.MODE_PRIVATE);
+                String tourGuiderPrice = tourGuidePrefs.getString("tourGuiderPrice", "default_price");
+
+                // Get vehicle price
+                SharedPreferences transportPrefs = getSharedPreferences("TransportPrefs", Context.MODE_PRIVATE);
+                String vehiclePrice = transportPrefs.getString("vehiclePrice", "default_price");
+
+                // Use the retrieved prices as needed
+                // For example, you can pass them to the next activity using Intent extras
+
+                Intent intent = new Intent(context, HotelsListActivity.class);
+                intent.putExtra("city_id", placesModel.getCity_id());
+                intent.putExtra("tourGuiderPrice", tourGuiderPrice);
+                intent.putExtra("vehiclePrice", vehiclePrice);
+                startActivity(intent);
             }
         });
+
         back_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,8 +138,12 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
         //getting data from previous activity
 
-        placesModel = getIntent().getParcelableExtra("placemodel");
 
+        if (placesModel == null) {
+            placesModel = new SharedPref().getPlaceDetails(context);
+        } else {
+            new SharedPref().savePlaceDetail(context, placesModel);
+        }
         if (placesModel.getImages() != null) {
             ImagesSliderAdapter imagesSliderAdapter = new ImagesSliderAdapter(placesModel.getImages(), context);
             cardSliderViewPager.setAdapter(imagesSliderAdapter);

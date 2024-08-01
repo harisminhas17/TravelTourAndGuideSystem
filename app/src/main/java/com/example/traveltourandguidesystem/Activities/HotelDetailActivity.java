@@ -3,6 +3,7 @@ package com.example.traveltourandguidesystem.Activities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,8 +26,11 @@ public class HotelDetailActivity extends AppCompatActivity {
     CardSliderViewPager cardSliderViewPager;
     TextView tv_h_name, tv_h_add, tv_dir, tv_h_d_rating, tv_h_about, tv_h_wifi;
     TextView tv_h_single_room, tv_h_double_room, tv_h_single_bed, tv_h_double_bed;
-    TextView tv_h_chi_food, tv_h_fast_food;
+    TextView tv_h_chi_food, tv_h_fast_food, tv_p_d_review;
     Button tv_book_hotel;
+
+    static String tourGuiderPrice;
+    static String vehiclePrice;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -36,6 +40,8 @@ public class HotelDetailActivity extends AppCompatActivity {
         context = HotelDetailActivity.this;
         getSupportActionBar().hide();
 
+
+        tv_p_d_review = findViewById(R.id.tv_p_d_review);
         cardSliderViewPager = findViewById(R.id.slider);
         back_5 = findViewById(R.id.back_5);
         notify_btn = findViewById(R.id.notify_btn);
@@ -57,6 +63,20 @@ public class HotelDetailActivity extends AppCompatActivity {
         tv_h_chi_food = findViewById(R.id.tv_h_chi_food);
         tv_h_fast_food = findViewById(R.id.tv_h_fast_food);
 
+        Intent intent = getIntent();
+        tourGuiderPrice = intent.getStringExtra("tourGuiderPrice");
+        vehiclePrice = intent.getStringExtra("vehiclePrice");
+
+
+        hotelsModel = getIntent().getParcelableExtra("hotelmodel");
+
+        tv_p_d_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, ReviewActivity.class).putExtra("hotelsModel", hotelsModel));
+            }
+        });
+
 
         back_5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,9 +93,54 @@ public class HotelDetailActivity extends AppCompatActivity {
         tv_book_hotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, BookingTourActivity.class).putExtra("city_id", hotelsModel.getCity_id()));
+                String hotelName = hotelsModel.getName();
+                tv_h_name.setText(hotelName);
+
+                // Get tour guider price from SharedPreferences
+                SharedPreferences tourGuidePrefs = getSharedPreferences("TourGuidePrefs", Context.MODE_PRIVATE);
+                String tourGuiderPrice = tourGuidePrefs.getString("tourGuiderPrice", "0");
+
+                // Get vehicle price from SharedPreferences
+                SharedPreferences transportPrefs = getSharedPreferences("TransportPrefs", Context.MODE_PRIVATE);
+                String vehiclePrice = transportPrefs.getString("vehiclePrice", "0");
+
+                // Determine hotel price based on hotel name
+                String hotelPrice = "0";
+                switch (hotelName) {
+                    case "Capital House Islamabad":
+                        hotelPrice = "15,000";
+                        break;
+                    case "Hillside Residence by Paramount Hospitality":
+                        hotelPrice = "20,000";
+                        break;
+                    case "Rhodium Boutique Hotel Islamabad":
+                        hotelPrice = "30,000";
+                        break;
+                    case "Ramada by Wyndham Islamabad":
+                        hotelPrice = "40,000";
+                        break;
+                    case "Grand Regency Hotel":
+                        hotelPrice = "25,000";
+                        break;
+                    case "IFQ Hotel & Resort Islamabad":
+                        hotelPrice = "60,000";
+                        break;
+                    default:
+                        hotelPrice = "0";
+                        break;
+                }
+
+                // Create an intent to start BookingTourActivity
+                Intent intent = new Intent(context, BookingTourActivity.class);
+                intent.putExtra("city_id", hotelsModel.getCity_id());
+                intent.putExtra("tourGuiderPrice", tourGuiderPrice);
+                intent.putExtra("vehiclePrice", vehiclePrice);
+                intent.putExtra("hotelPrice", hotelPrice);
+                startActivity(intent);
             }
         });
+
+
         tv_dir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +150,6 @@ public class HotelDetailActivity extends AppCompatActivity {
 
         //getting data from previous activity
 
-        hotelsModel = getIntent().getParcelableExtra("hotelmodel");
 
         if (hotelsModel.getImages() != null) {
             ImagesSliderAdapter imagesSliderAdapter = new ImagesSliderAdapter(hotelsModel.getImages(), HotelDetailActivity.this);

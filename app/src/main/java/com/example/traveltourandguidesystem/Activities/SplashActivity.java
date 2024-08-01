@@ -55,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<String> task) {
                 String token = task.getResult().toString();
-                Log.i(TAG, "onComplete: " + token);
+                Log.i(TAG, "onComplete: " + token);       //debugging process
                 String email = new SharedPref().getEmailData(context);
                 updateNotificationToken(email, token);
             }

@@ -45,77 +45,22 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/baseline_payments_24"
+                android:layout_gravity="center"></ImageView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
-                android:text="Payment Details"
-                android:textColor="#000000"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Choose Your Payment Method"
+                android:textColor="#737373"
                 android:textSize="16sp" />
-
-
-            <EditText
-                android:id="@+id/tv_payment_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_person_outline_24"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/white"
-                android:hint="Enter Your Name"
-                android:singleLine="true"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/tv_payment_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_local_phone_24"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"
-                android:hint="Enter Your Phone Number"
-                android:singleLine="true"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/tv_payment_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_location_city_24"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:hint="Enter Your Address"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
-
-
-            <EditText
-                android:id="@+id/tv_payment_easy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_location_city_24"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/white"
-                android:hint="Easypaisa Account or Bank Account"
-                android:singleLine="true"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -123,14 +68,79 @@
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
-                android:text="Payment Summary"
+                android:text="Check-in"
                 android:textColor="#000000"
                 android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox_checkin_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Yes" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_checkin_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="No" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginTop="10dp"
+                android:text="Pay Online"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox_payonline_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Yes" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_payonline_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="No" />
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/tv_payment_submit"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/button_round"

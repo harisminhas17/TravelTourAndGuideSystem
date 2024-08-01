@@ -49,6 +49,8 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsView
 
         viewHolder.tv_address.setText(hotelsModel.getAddress());
 
+        viewHolder.tv_price_hotel.setText(hotelsModel.getPrices());
+
 //        viewHolder.tv_rating.setText(hotelsModel.getRating());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +79,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsView
         TextView tv_name;
         TextView tv_address;
         TextView tv_rating;
+        TextView tv_price_hotel;
 
 
         HotelsViewHolder(View itemView) {
@@ -86,7 +89,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsView
             tv_name = itemView.findViewById(R.id.tv_name);
             tv_address = itemView.findViewById(R.id.tv_address_hotel);
             tv_rating = itemView.findViewById(R.id.tv_rating_hotel);
-
+            tv_price_hotel = itemView.findViewById(R.id.tv_price_hotel);
         }
     }
 

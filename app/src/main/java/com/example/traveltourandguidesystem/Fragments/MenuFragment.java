@@ -232,31 +232,6 @@ public class MenuFragment extends Fragment {
         setlocale(language);
     }
 
-//    @SuppressLint("ResourceType")
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        inflater.inflate(R.menu.menu, menu);
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.tv_share_to_others) {
-//            ApplicationInfo api = context.getApplicationContext().getApplicationInfo(); // Corrected context reference
-//            String appPath = api.sourceDir; // Corrected variable name
-//            Intent intent = new Intent(Intent.ACTION_SEND); // Share app to others with subject and text shown to the users
-//            intent.setType("text/plain");
-//            intent.putExtra(Intent.EXTRA_SUBJECT, "Book Your Tour Now!");
-//            intent.putExtra(Intent.EXTRA_TEXT, "Application Link Here");
-//            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(appPath)));
-//            startActivity(Intent.createChooser(intent, "Share Via"));
-//            return true; // Corrected return statement
-//        }
-//        return super.onOptionsItemSelected(item); // Moved outside the if block
-//    }
-
-
     public void deleteUser() {
 
         int id2 = new SharedPref().getid(getContext());
@@ -266,6 +241,7 @@ public class MenuFragment extends Fragment {
         builder.setTitle("Deletion of Account!");
         builder.setMessage("Are You Sure To Delete Your Account?");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
+
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

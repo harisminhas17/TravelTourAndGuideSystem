@@ -13,8 +13,8 @@ import com.example.traveltourandguidesystem.R;
 
 public class AlbumsShareExpActivity extends AppCompatActivity {
 
-    ImageView tv_share_exp_back, tv_share_exp_notify;
-    Button tv_share_exp_cancel, tv_share_exp_upload;
+    ImageView tv_share_exp_back, tv_share_exp_notify, tv_share_exp_upload;
+    Button tv_share_exp_cancel;
 
     @SuppressLint("WrongViewCast")
     @Override

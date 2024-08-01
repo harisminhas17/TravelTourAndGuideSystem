@@ -27,17 +27,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_v_skip"
-            android:background="@drawable/button_round"
-            android:text="Skip"
-            android:textSize="12sp"
-            android:textColor="@color/ic_launcher_background"
-            android:layout_gravity="center">
 
-        </Button>
 
     </LinearLayout>
 

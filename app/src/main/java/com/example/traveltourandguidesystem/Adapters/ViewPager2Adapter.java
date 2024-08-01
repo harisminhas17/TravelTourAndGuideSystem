@@ -14,9 +14,9 @@ import com.example.traveltourandguidesystem.R;
 public class ViewPager2Adapter extends RecyclerView.Adapter<ViewPager2Adapter.ViewHolder> {
 
 	// Array of images 
-	// Adding images from drawable folder 
-	private int[] images = {R.drawable.ic_globe, R.drawable.ic_tour, R.drawable.ic_man_hike};
-	private Context ctx; 
+    // Adding images from drawable folder
+    private int[] images = {R.drawable.travel_tour_guide, R.drawable.ic_tour, R.drawable.ic_man_hike};
+    private Context ctx;
 
 	// Constructor of our ViewPager2Adapter class 
 	public ViewPager2Adapter(Context ctx) {

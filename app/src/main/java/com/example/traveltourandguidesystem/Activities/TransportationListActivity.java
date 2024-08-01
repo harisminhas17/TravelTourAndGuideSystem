@@ -2,8 +2,6 @@ package com.example.traveltourandguidesystem.Activities;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,7 +26,7 @@ import retrofit2.Response;
 public class TransportationListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView_top;
-    Button tv_v_skip;
+
     private Context context;
     static int city_id;
     ArrayList<TransporationModel> transporationModels = new ArrayList<>();
@@ -43,15 +41,8 @@ public class TransportationListActivity extends AppCompatActivity {
         city_id = getIntent().getIntExtra("city_id", 0);
 
         recyclerView_top = findViewById(R.id.recyclerView_top);
-        tv_v_skip = findViewById(R.id.tv_v_skip);
-        context = TransportationListActivity.this;
 
-        tv_v_skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                startActivity(new Intent(context,));
-            }
-        });
+        context = TransportationListActivity.this;
 
     }
 

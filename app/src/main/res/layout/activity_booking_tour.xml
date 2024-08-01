@@ -27,8 +27,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:fontFamily="@font/poppins_bold"
-            android:layout_marginRight="30dp"
-            android:text="Booking Your Date"
+            android:text="Booking Reservation"
             android:textColor="@color/colorPrimary"
             android:textSize="25sp" />
     </LinearLayout>
@@ -43,90 +42,15 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <CalendarView
-                android:id="@+id/calendarView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
-                android:text="Booking Details"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-
-            <EditText
-                android:id="@+id/tv_book_checkin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_access_time_24"
-                android:drawablePadding="10dp"
                 android:fontFamily="@font/poppins_bold"
-                android:hint="Check-in"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/tv_book_checkout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textColor="@color/white"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_access_time_24"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:hint="Check-out"
-                android:singleLine="true"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/tv_book_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_access_time_filled_24"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"
-                android:hint="Arrival-Time"
-                android:singleLine="true"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/tv_book_length"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_today_24"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/white"
-                android:hint="Total Length of Stay"
-                android:singleLine="true"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:layout_marginTop="10dp"
                 android:text="Enter Your Personal Details"
-                android:textColor="#000000"
+                android:textColor="#737373"
                 android:textSize="16sp" />
 
             <EditText
@@ -138,24 +62,9 @@
                 android:drawableLeft="@drawable/baseline_person_outline_24"
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/white"
-                android:hint="Enter Your Name"
+                android:hint="Enter Your Full Name"
                 android:singleLine="true"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/tv_book_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_email_24"
-                android:drawablePadding="10dp"
                 android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"
-                android:hint="Enter Your Email"
-                android:singleLine="true"
                 android:textColorHint="#FFFFFF"
                 android:textSize="12sp" />
 
@@ -167,20 +76,20 @@
                 android:background="@drawable/profile_green_rounded"
                 android:drawableLeft="@drawable/baseline_local_phone_24"
                 android:drawablePadding="10dp"
-                android:textColor="@color/white"
                 android:fontFamily="@font/poppins_bold"
                 android:hint="Enter Your Phone Number"
                 android:singleLine="true"
+                android:textColor="@color/white"
                 android:textColorHint="#FFFFFF"
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/tv_book_room"
+                android:id="@+id/tv_book_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/profile_green_rounded"
-                android:drawableLeft="@drawable/baseline_location_city_24"
+                android:drawableLeft="@drawable/baseline_home_24"
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:hint="Enter Your Address"
@@ -188,7 +97,6 @@
                 android:textColor="@color/white"
                 android:textColorHint="#FFFFFF"
                 android:textSize="12sp" />
-
 
             <EditText
                 android:id="@+id/tv_book_city"
@@ -199,9 +107,54 @@
                 android:drawableLeft="@drawable/baseline_location_city_24"
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/white"
                 android:hint="City"
                 android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="#FFFFFF"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/tv_book_province"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_location_city_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Province"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_book_arrival_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_date_range_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Arrival Date (DD-MM-YYYY) "
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_book_departure_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/profile_green_rounded"
+                android:drawableLeft="@drawable/baseline_date_range_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Departure Date (DD-MM-YYYY)"
+                android:singleLine="true"
+                android:textColor="@color/white"
                 android:textColorHint="#FFFFFF"
                 android:textSize="12sp" />
 
@@ -209,11 +162,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
-                android:text="Enter Your Hotel Booking"
-                android:textColor="#000000"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Enter Your Hotel Booking Details"
+                android:textColor="#737373"
                 android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/tv_h_book_rooms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/review_message_rounded"
+                android:drawableLeft="@drawable/baseline_meeting_room_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="No. of Rooms"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="#FFFFFF"
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/tv_h_book_r_type"
@@ -225,26 +193,11 @@
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:hint="Single Room or Double Room"
-                android:textColor="@color/white"
                 android:singleLine="true"
+                android:textColor="@color/white"
                 android:textColorHint="#FFFFFF"
                 android:textSize="12sp" />
 
-
-            <EditText
-                android:id="@+id/tv_h_book_rooms"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_margin="10dp"
-                android:background="@drawable/review_message_rounded"
-                android:drawableLeft="@drawable/baseline_meeting_room_24"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:hint="No. of Rooms"
-                android:singleLine="true"
-                android:textColorHint="#FFFFFF"
-                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/tv_h_book_beds"
@@ -257,10 +210,9 @@
                 android:fontFamily="@font/poppins_bold"
                 android:hint="Single Bed or Double Bed"
                 android:singleLine="true"
-                android:textColorHint="#FFFFFF"
                 android:textColor="@color/white"
+                android:textColorHint="#FFFFFF"
                 android:textSize="12sp" />
-
 
             <EditText
                 android:id="@+id/tv_h_book_guest"
@@ -272,8 +224,34 @@
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:hint="No. of Guests"
-                android:textColor="@color/white"
                 android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="#FFFFFF"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Special Requests"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/tv_h_book_s_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/review_message_rounded"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:minLines="5"
+                android:layout_gravity="center"
+                android:hint="Enter Special Requests or Requirements"
+                android:textColor="@color/white"
                 android:textColorHint="#FFFFFF"
                 android:textSize="12sp" />
 
@@ -287,33 +265,40 @@
                 android:textColor="#000000"
                 android:textSize="16sp" />
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/checkBox_tour_guide_yes"
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Tour Guide" />
+                    android:text="Yes" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_tour_guide_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="No" />
 
             </LinearLayout>
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
-                android:text="Do You Need Tour Transportation?"
+                android:text="Do You Need Transportation?"
                 android:textColor="#000000"
                 android:textSize="16sp" />
 
@@ -322,36 +307,54 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-
                 <CheckBox
-                    android:id="@+id/checkBox_t"
+                    android:id="@+id/checkBox_transport_yes"
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Transportation" />
+                    android:text="Yes" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_transport_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="No" />
 
             </LinearLayout>
 
 
-            <Button
-                android:id="@+id/tv_payment_submit"
+            <TextView
+
                 android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/button_round"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Confirm"
-                android:layout_marginBottom="20dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_book_now"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_round"
+                android:layout_marginBottom="40dp"
+                android:text="Done"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:textColor="@color/ic_launcher_background"
+                android:layout_gravity="center" />
 
         </LinearLayout>
-
     </ScrollView>
-
-
 </LinearLayout>

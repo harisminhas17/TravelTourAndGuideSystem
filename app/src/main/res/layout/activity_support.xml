@@ -25,10 +25,10 @@
             android:id="@+id/support"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppins_bold"
-            android:layout_marginRight="30dp"
+            android:gravity="center"
             android:text="Support"
             android:textSize="25sp" />
 
@@ -116,7 +116,7 @@
                 android:fontFamily="@font/poppins_bold"
                 android:hint="Write your message here......"
                 android:layout_gravity="center"
-                android:gravity="top"
+                android:gravity="center"
                 android:minLines="6"
                 android:padding="15dp"
                 android:textColorHint="#FFFFFF"

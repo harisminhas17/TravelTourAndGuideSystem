@@ -85,7 +85,7 @@ public class OnboardingActivity extends AppCompatActivity {
                     viewPager2.setCurrentItem(pos,true);
                 }
                 else{
-                    //move to nxt screen
+
                     startActivity(new Intent(OnboardingActivity.this,RegistrationActivity.class));
                 }
             }

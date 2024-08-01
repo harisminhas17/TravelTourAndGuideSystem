@@ -3,10 +3,12 @@ package com.example.traveltourandguidesystem.Activities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -63,26 +65,73 @@ public class TransportationDetailActivity extends AppCompatActivity {
         tv_t_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(context, PlaceDetailActivity.class).putExtra("city_id", transporationModel.getCity_id()));
+                String vehicleName = transporationModel.getVehicle_name();
+                tv_t_name.setText(vehicleName);
+
+                String price = "";
+                switch (vehicleName) {
+                    case "HondaCivic":
+                        price = "20,000";
+                        break;
+                    case "Toyota Landcruiser Prado":
+                        price = "30,000";
+                        break;
+                    case "Suzuki wagonR":
+                        price = "15,000";
+                        break;
+                    case "Toyota Land Cruiser v8":
+                        price = "40,000";
+                        break;
+                    case "Toyota prius":
+                        price = "25,000";
+                        break;
+                    default:
+                        price = "Price not available";
+                        break;
+                }
+
+                SharedPreferences tourGuidePrefs = getSharedPreferences("TourGuidePrefs", Context.MODE_PRIVATE);
+                String tourGuiderPrice = tourGuidePrefs.getString("tourGuiderPrice", "default_price");
+
+                // Get vehicle price
+                SharedPreferences transportPrefs = getSharedPreferences("TransportPrefs", Context.MODE_PRIVATE);
+                String vehiclePrice = transportPrefs.getString("vehiclePrice", "default_price");
+                Intent intent = new Intent(context, HotelsListActivity.class);
+                intent.putExtra("city_id", transporationModel.getCity_id());
+                intent.putExtra("tourGuiderPrice", tourGuiderPrice);
+                intent.putExtra("vehiclePrice", vehiclePrice);
+                startActivity(intent);
             }
         });
+
 
         //getting data from previous activity
 
         transporationModel = getIntent().getParcelableExtra("transportationmodel");
 
-        if (transporationModel.getVehicle_image() != null) {
-            ArrayList<ImageModel> images = new ArrayList<>();
-            images.add(new ImageModel(transporationModel.getVehicle_image()));
+        if (transporationModel != null) {
+            if (transporationModel.getVehicle_image() != null) {
+                ArrayList<ImageModel> images = new ArrayList<>();
+                images.add(new ImageModel(transporationModel.getVehicle_image()));
 
-            ImagesSliderAdapter imagesSliderAdapter = new ImagesSliderAdapter(images, TransportationDetailActivity.this);
-            cardSliderViewPager.setAdapter(imagesSliderAdapter);
+                ImagesSliderAdapter imagesSliderAdapter = new ImagesSliderAdapter(images, TransportationDetailActivity.this);
+                cardSliderViewPager.setAdapter(imagesSliderAdapter);
 
-            tv_t_name.setText(transporationModel.getVehicle_name());
-            tv_t_type.setText(transporationModel.getVehicle_type());
-            tv_t_color.setText(transporationModel.getVehicle_color());
-            tv_t_p_n.setText(transporationModel.getVehicle_plate_number());
-            tv_t_model.setText(transporationModel.getVehicle_model());
+                tv_t_name.setText(transporationModel.getVehicle_name());
+                tv_t_type.setText(transporationModel.getVehicle_type());
+                tv_t_color.setText(transporationModel.getVehicle_color());
+                tv_t_p_n.setText(transporationModel.getVehicle_plate_number());
+                tv_t_model.setText(transporationModel.getVehicle_model());
+            } else {
+                // Handle case where vehicle_image is null
+                // e.g., show a default image or a placeholder
+            }
+        } else {
+            // Handle case where transporation Model is null
+            Toast.makeText(this, "No transportation data available", Toast.LENGTH_SHORT).show();
+            // Optionally, finish the activity or navigate back
+            finish();
         }
     }
+
 }

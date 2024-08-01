@@ -86,7 +86,6 @@ public class TourGuideListActivity extends AppCompatActivity {
                 }
             }
 
-
             @Override
             public void onFailure(Call<Object> call, Throwable throwable) {
                 throwable.printStackTrace();

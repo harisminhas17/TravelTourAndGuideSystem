@@ -17,6 +17,15 @@ public class HotelsModel implements Parcelable {
     String address;
     String chinese_food;
 
+    public String getPrices() {
+        return prices;
+    }
+
+    public void setPrices(String prices) {
+        this.prices = prices;
+    }
+
+    String prices;
     String fast_food;
     String about;
     ArrayList<ImageModel> images;

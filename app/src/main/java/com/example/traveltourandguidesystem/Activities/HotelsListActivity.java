@@ -1,6 +1,7 @@
 package com.example.traveltourandguidesystem.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,8 @@ import retrofit2.Response;
 public class HotelsListActivity extends AppCompatActivity {
 
     static int city_id;
+    static String tourGuiderPrice;
+    static String vehiclePrice;
     RecyclerView recyclerView_top;
 
     ArrayList<HotelsModel> hotelsModels = new ArrayList<>();
@@ -39,7 +42,11 @@ public class HotelsListActivity extends AppCompatActivity {
         context = HotelsListActivity.this;
         recyclerView_top = findViewById(R.id.recyclerView_top);
 
+        Intent intent = getIntent();
         city_id = getIntent().getIntExtra("city_id", 0);
+        tourGuiderPrice = intent.getStringExtra("tourGuiderPrice");
+        vehiclePrice = intent.getStringExtra("vehiclePrice");
+
 
     }
 

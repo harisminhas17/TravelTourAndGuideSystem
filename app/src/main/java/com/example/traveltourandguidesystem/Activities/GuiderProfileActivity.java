@@ -3,6 +3,7 @@ package com.example.traveltourandguidesystem.Activities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,9 @@ public class GuiderProfileActivity extends AppCompatActivity {
     TextView tv_h_name, tv_h_d_rating, tv_g_exp, tv_g_ph, tv_g_add, tv_g_ab, tv_g_lan, tv_g_price;
     Button tv_g_done;
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -49,6 +53,10 @@ public class GuiderProfileActivity extends AppCompatActivity {
         tv_g_price = findViewById(R.id.tv_g_price);
         tv_g_done = findViewById(R.id.tv_g_done);
 
+        sharedPreferences = getSharedPreferences("TourGuidePrefs", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+
         cardSliderViewPager = findViewById(R.id.slider);
         notify_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +74,7 @@ public class GuiderProfileActivity extends AppCompatActivity {
         tv_g_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(context, PlaceDetailActivity.class).putExtra("city_id", tourGuiderModel.getCity_id()));
+                startActivity(new Intent(context, TransportationListActivity.class).putExtra("city_id", tourGuiderModel.getCity_id()));
             }
         });
 
@@ -87,6 +95,9 @@ public class GuiderProfileActivity extends AppCompatActivity {
             tv_g_ab.setText(tourGuiderModel.getAbout());
             tv_g_lan.setText(tourGuiderModel.getLanguages());
             tv_g_price.setText(tourGuiderModel.getPrice());
+            editor.putString("tourGuiderPrice", tourGuiderModel.getPrice());
+            editor.apply();
+
         }
     }
 }
