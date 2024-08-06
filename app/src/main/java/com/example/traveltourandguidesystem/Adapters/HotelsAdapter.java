@@ -56,7 +56,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsView
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, HotelDetailActivity.class).putExtra("hotelmodel", hotelsModel));
+                context.startActivity(new Intent(context, HotelDetailActivity.class).putExtra("hotelsModel", hotelsModel));
             }
         });
 

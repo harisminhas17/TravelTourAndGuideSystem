@@ -28,10 +28,8 @@ public class GuiderProfileActivity extends AppCompatActivity {
     ImageView back_5, notify_btn;
     TextView tv_h_name, tv_h_d_rating, tv_g_exp, tv_g_ph, tv_g_add, tv_g_ab, tv_g_lan, tv_g_price;
     Button tv_g_done;
-
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,6 +38,7 @@ public class GuiderProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_guider_profile);
         getSupportActionBar().hide();
         context = GuiderProfileActivity.this;
+        tourGuiderModel = getIntent().getParcelableExtra("tourguidermodel");
 
         back_5 = findViewById(R.id.back_5);
         notify_btn = findViewById(R.id.notify_btn);
@@ -55,7 +54,6 @@ public class GuiderProfileActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("TourGuidePrefs", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-
 
         cardSliderViewPager = findViewById(R.id.slider);
         notify_btn.setOnClickListener(new View.OnClickListener() {
@@ -74,13 +72,11 @@ public class GuiderProfileActivity extends AppCompatActivity {
         tv_g_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, TransportationListActivity.class).putExtra("city_id", tourGuiderModel.getCity_id()));
+                startActivity(new Intent(context, HotelDetailActivity.class).putExtra("city_id", tourGuiderModel.getCity_id()));
             }
         });
 
         //getting data from previous activity
-
-        tourGuiderModel = getIntent().getParcelableExtra("tourguidermodel");
 
         if (tourGuiderModel.getImage() != null) {
             ArrayList<ImageModel> images = new ArrayList<>();

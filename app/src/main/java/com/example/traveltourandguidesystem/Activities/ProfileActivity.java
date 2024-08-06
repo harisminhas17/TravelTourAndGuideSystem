@@ -4,8 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +29,8 @@ import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -113,17 +119,33 @@ public class ProfileActivity extends AppCompatActivity {
                 } else if (address.length() < 3) {
                     Toast.makeText(ProfileActivity.this, "Enter Your Correct Address", Toast.LENGTH_SHORT).show();
                 } else {
-                    updateProfile(name, email, password, address);
+
+                    // Get the image from the ImageView
+
+                    tv_pic.setDrawingCacheEnabled(true);
+                    tv_pic.buildDrawingCache();
+                    Bitmap bitmap = ((BitmapDrawable) tv_pic.getDrawable()).getBitmap();
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] imageBytes = baos.toByteArray();
+                    String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+                    // Debugging log
+                    Log.d("ProfileActivity", "Encoded Image: " + encodedImage);
+
+                    // Call the updateProfile method
+                    updateProfile(name, email, password, address, encodedImage);
                 }
             }
         });
     }
 
-    private void updateProfile(String name, String email, String password, String address) {
+
+    private void updateProfile(String name, String email, String password, String address, String encodedImage) {
         progressDialog.setMessage("Updating Your Profile...");
         progressDialog.show();
         ApiClient apiClient = new ApiClient();
-        Call<Object> responseCall = apiClient.getClient(ProfileActivity.this).create(APIInterface.class).updateProfile(name, email, password, address);
+        Call<Object> responseCall = apiClient.getClient(ProfileActivity.this).create(APIInterface.class).updateProfile(name, email, password, address, encodedImage);
         responseCall.enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
@@ -158,13 +180,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        int i = 0;
 
         if (resultCode == Activity.RESULT_OK && requestCode == 999) {
-            //Image Uri will not be null for RESULT_OK
+            // Image Uri will not be null for RESULT_OK
             Uri uri = data.getData();
             tv_pic.setImageURI(uri);
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
@@ -173,5 +195,6 @@ public class ProfileActivity extends AppCompatActivity {
             Toast.makeText(this, "Profile Not Uploaded", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 }

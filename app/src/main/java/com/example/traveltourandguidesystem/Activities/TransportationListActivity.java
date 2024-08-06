@@ -26,7 +26,6 @@ import retrofit2.Response;
 public class TransportationListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView_top;
-
     private Context context;
     static int city_id;
     ArrayList<TransporationModel> transporationModels = new ArrayList<>();

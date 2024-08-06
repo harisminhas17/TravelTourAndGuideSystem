@@ -24,7 +24,8 @@ public interface APIInterface {
     Call<Object> updateProfile(@Field("name") String name,
                                @Field("email") String email,
                                @Field("password") String password,
-                               @Field("address") String address);
+                               @Field("address") String address,
+                               @Field("image") String encodedImage);
 
     @POST("sendOTP")
     @FormUrlEncoded
@@ -95,5 +96,17 @@ public interface APIInterface {
 
     @POST("sendUserHotelReview")
     @FormUrlEncoded
-    Call<Object> sendUserHotelReview(@Field("user_id") int user_id, @Field("rating") float rating, @Field("review") String review, @Field("item_id") int item_id, @Field("item_type") String item_type);
+    Call<Object> sendUserHotelReview(@Field("user_id") int user_id,
+                                     @Field("rating") float rating,
+                                     @Field("review") String review,
+                                     @Field("item_id") int item_id,
+                                     @Field("item_type") String item_type);
+
+    @POST("sendUserPlaceReviews")
+    @FormUrlEncoded
+    Call<Object> sendUserPlaceReviews(@Field("user_id") int user_id,
+                                      @Field("rating") float rating,
+                                      @Field("review") String review,
+                                      @Field("item_id") int item_id,
+                                      @Field("item_type") String item_type);
 }

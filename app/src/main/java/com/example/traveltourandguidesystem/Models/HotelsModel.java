@@ -30,9 +30,7 @@ public class HotelsModel implements Parcelable {
     String about;
     ArrayList<ImageModel> images;
     String wifi;
-
     String single_room;
-
     String double_room;
 
     protected HotelsModel(Parcel in) {

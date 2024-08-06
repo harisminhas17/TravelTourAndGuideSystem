@@ -30,7 +30,6 @@ public class HotelsListActivity extends AppCompatActivity {
     static String tourGuiderPrice;
     static String vehiclePrice;
     RecyclerView recyclerView_top;
-
     ArrayList<HotelsModel> hotelsModels = new ArrayList<>();
     private Context context;
 

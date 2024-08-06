@@ -31,7 +31,6 @@ import retrofit2.Response;
 public class ReviewActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
-
     private Context context;
     PlacesModel placesModel;
     HotelsModel hotelsModel;
@@ -39,8 +38,6 @@ public class ReviewActivity extends AppCompatActivity {
     Button tv_rating_submit;
     RatingBar ratingBar_item;
     EditText tv_option_item, tv_review_message;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +45,6 @@ public class ReviewActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         progressDialog = new ProgressDialog(ReviewActivity.this);
         progressDialog.setCancelable(true);
-
         context = ReviewActivity.this;
         hotelsModel = getIntent().getParcelableExtra("hotelsModel");
         placesModel = getIntent().getParcelableExtra("placesModel");
@@ -76,28 +72,36 @@ public class ReviewActivity extends AppCompatActivity {
         }
 
         tv_rating_submit.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                String item_type = "";
-                int item_id = 0;
-                if (hotelsModel != null) {
-                    item_id = hotelsModel.getId();
-                    item_type = "hotel";
-                } else if (placesModel != null) {
-                    item_id = placesModel.getId();
-                    item_type = "place";
-                }
 
                 // Get values from the input fields
-
                 float rating = ratingBar_item.getRating();
                 String review = tv_review_message.getText().toString();
-                sendUserHotelReview(item_id, rating, review, item_type);
 
+                // Check if rating or review is empty
+
+                if (rating == 0) {
+                    Toast.makeText(context, "Please provide a rating", Toast.LENGTH_SHORT).show();
+                } else if (review.length() < 2) {
+                    Toast.makeText(context, "Please write your review", Toast.LENGTH_SHORT).show();
+                } else {
+                    String item_type = "";
+                    int item_id = 0;
+                    if (hotelsModel != null) {
+                        item_id = hotelsModel.getId();
+                        item_type = "hotel";
+                    } else if (placesModel != null) {
+                        item_id = placesModel.getId();
+                        item_type = "place";
+                    }
+
+                    // Send the review and rating
+                    sendUserHotelReview(item_id, rating, review, item_type);
+                    sendUserPlaceReviews(item_id, rating, review, item_type);
+                }
             }
         });
-
     }
 
     private void sendUserHotelReview(int item_id, float rating, String review, String item_type) {
@@ -115,10 +119,46 @@ public class ReviewActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
                     boolean error = jsonObject.getBoolean("error");
                     if (error) {
-                        String msg = jsonObject.getString("Message Does Not Send");
+                        String msg = jsonObject.getString("Review Does Not Send");
                         Toast.makeText(ReviewActivity.this, msg, Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(ReviewActivity.this, "Message Send Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ReviewActivity.this, "Hotel Review Send Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ReviewActivity.this, MainActivity.class));
+                        finish();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable throwable) {
+                progressDialog.dismiss();
+                throwable.printStackTrace();
+            }
+        });
+
+    }
+
+    private void sendUserPlaceReviews(int item_id, float rating, String review, String item_type) {
+        int user_id = new SharedPref().getid(context);
+        progressDialog.setMessage("Message is Sending");
+        progressDialog.show();
+        int id = new SharedPref().getid(ReviewActivity.this);
+        ApiClient apiClient = new ApiClient();
+        Call<Object> responseCall = apiClient.getClient(ReviewActivity.this).create(APIInterface.class).sendUserPlaceReviews(user_id, rating, review, item_id, item_type);
+        responseCall.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                progressDialog.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(new Gson().toJson(response.body()));
+                    boolean error = jsonObject.getBoolean("error");
+                    if (error) {
+                        String msg = jsonObject.getString("Review Does Not Send");
+                        Toast.makeText(ReviewActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(ReviewActivity.this, "Place Review Send Successfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ReviewActivity.this, MainActivity.class));
                         finish();
                     }

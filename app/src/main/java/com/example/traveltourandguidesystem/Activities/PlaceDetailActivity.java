@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.traveltourandguidesystem.Adapters.ImagesSliderAdapter;
 import com.example.traveltourandguidesystem.Helper.HelperMethods;
-import com.example.traveltourandguidesystem.Helper.SharedPref;
 import com.example.traveltourandguidesystem.Models.PlacesModel;
 import com.example.traveltourandguidesystem.R;
 import com.github.islamkhsh.CardSliderViewPager;
@@ -28,9 +27,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     TextView tv_detail_description, tv_name, tv_about, tv_dir, tv_visited, tv_mark;
     ImageView notify_btn;
     ImageView back_4;
-
-    TextView tv_p_d_tour_guide, tv_p_d_transport, tv_p_d_review;
-
+    TextView tv_p_d_review;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -52,8 +49,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
         tv_visited = findViewById(R.id.tv_visited);
         tv_mark = findViewById(R.id.tv_mark);
 
-        tv_p_d_transport = findViewById(R.id.tv_p_d_transport);
-        tv_p_d_tour_guide = findViewById(R.id.tv_p_d_tour_guide);
+
         tv_p_d_review = findViewById(R.id.tv_p_d_review);
 
         placesModel = getIntent().getParcelableExtra("placesModel");
@@ -106,21 +102,6 @@ public class PlaceDetailActivity extends AppCompatActivity {
             }
         });
 
-        tv_p_d_tour_guide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context, TourGuideListActivity.class).putExtra("city_id", placesModel.getCity_id()));
-            }
-        });
-
-        tv_p_d_transport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context, TransportationListActivity.class).putExtra("city_id", placesModel.getCity_id()));
-            }
-        });
-
-
         tv_visited.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,12 +119,11 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
         //getting data from previous activity
 
-
-        if (placesModel == null) {
-            placesModel = new SharedPref().getPlaceDetails(context);
-        } else {
-            new SharedPref().savePlaceDetail(context, placesModel);
-        }
+//        if (placesModel == null) {
+//            placesModel = new SharedPref().getPlaceDetails(context);
+//        } else {
+//            new SharedPref().savePlaceDetail(context, placesModel);
+//        }
         if (placesModel.getImages() != null) {
             ImagesSliderAdapter imagesSliderAdapter = new ImagesSliderAdapter(placesModel.getImages(), context);
             cardSliderViewPager.setAdapter(imagesSliderAdapter);

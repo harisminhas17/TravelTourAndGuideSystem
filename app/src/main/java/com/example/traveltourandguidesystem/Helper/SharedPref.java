@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.traveltourandguidesystem.Models.HotelsModel;
 import com.example.traveltourandguidesystem.Models.PlacesModel;
 import com.google.gson.Gson;
 
@@ -34,6 +35,22 @@ public class SharedPref {
             return null;
         final SharedPreferences sharedPreferences = context.getSharedPreferences("placeModel", MODE_PRIVATE);
         return new Gson().fromJson(sharedPreferences.getString("placeModel", ""), PlacesModel.class);
+    }
+
+    public void saveHotelDetails(Context context, HotelsModel hotelsModel) {
+        if (context == null)
+            return;
+        final SharedPreferences sharedPreferences = context.getSharedPreferences("hotelsModel", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("hotelsModel", new Gson().toJson(hotelsModel));
+        editor.apply();
+    }
+
+    public HotelsModel getHotelDetails(Context context) {
+        if (context == null)
+            return null;
+        final SharedPreferences sharedPreferences = context.getSharedPreferences("hotelsModel", MODE_PRIVATE);
+        return new Gson().fromJson(sharedPreferences.getString("hotelsModel", ""), HotelsModel.class);
     }
 
     public String getEmailData(Context context) {

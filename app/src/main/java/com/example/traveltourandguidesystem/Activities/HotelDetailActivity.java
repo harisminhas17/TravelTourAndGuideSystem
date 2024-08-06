@@ -14,12 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.traveltourandguidesystem.Adapters.ImagesSliderAdapter;
 import com.example.traveltourandguidesystem.Helper.HelperMethods;
+import com.example.traveltourandguidesystem.Helper.SharedPref;
 import com.example.traveltourandguidesystem.Models.HotelsModel;
 import com.example.traveltourandguidesystem.R;
 import com.github.islamkhsh.CardSliderViewPager;
 
 public class HotelDetailActivity extends AppCompatActivity {
-
     HotelsModel hotelsModel;
     private Context context;
     ImageView back_5, notify_btn;
@@ -28,7 +28,7 @@ public class HotelDetailActivity extends AppCompatActivity {
     TextView tv_h_single_room, tv_h_double_room, tv_h_single_bed, tv_h_double_bed;
     TextView tv_h_chi_food, tv_h_fast_food, tv_p_d_review;
     Button tv_book_hotel;
-
+    TextView tv_p_d_tour_guide, tv_p_d_transport;
     static String tourGuiderPrice;
     static String vehiclePrice;
 
@@ -39,6 +39,8 @@ public class HotelDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hotel_detail);
         context = HotelDetailActivity.this;
         getSupportActionBar().hide();
+
+        hotelsModel = getIntent().getParcelableExtra("hotelsModel");
 
 
         tv_p_d_review = findViewById(R.id.tv_p_d_review);
@@ -63,12 +65,12 @@ public class HotelDetailActivity extends AppCompatActivity {
         tv_h_chi_food = findViewById(R.id.tv_h_chi_food);
         tv_h_fast_food = findViewById(R.id.tv_h_fast_food);
 
+        tv_p_d_tour_guide = findViewById(R.id.tv_p_d_tour_guide);
+        tv_p_d_transport = findViewById(R.id.tv_p_d_transport);
+
         Intent intent = getIntent();
         tourGuiderPrice = intent.getStringExtra("tourGuiderPrice");
         vehiclePrice = intent.getStringExtra("vehiclePrice");
-
-
-        hotelsModel = getIntent().getParcelableExtra("hotelmodel");
 
         tv_p_d_review.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +78,18 @@ public class HotelDetailActivity extends AppCompatActivity {
                 startActivity(new Intent(context, ReviewActivity.class).putExtra("hotelsModel", hotelsModel));
             }
         });
-
+        tv_p_d_tour_guide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, TourGuideListActivity.class).putExtra("city_id", hotelsModel.getCity_id()));
+            }
+        });
+        tv_p_d_transport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, TransportationListActivity.class).putExtra("city_id", hotelsModel.getCity_id()));
+            }
+        });
 
         back_5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,42 +117,16 @@ public class HotelDetailActivity extends AppCompatActivity {
                 SharedPreferences transportPrefs = getSharedPreferences("TransportPrefs", Context.MODE_PRIVATE);
                 String vehiclePrice = transportPrefs.getString("vehiclePrice", "0");
 
-                // Determine hotel price based on hotel name
-                String hotelPrice = "0";
-                switch (hotelName) {
-                    case "Capital House Islamabad":
-                        hotelPrice = "15,000";
-                        break;
-                    case "Hillside Residence by Paramount Hospitality":
-                        hotelPrice = "20,000";
-                        break;
-                    case "Rhodium Boutique Hotel Islamabad":
-                        hotelPrice = "30,000";
-                        break;
-                    case "Ramada by Wyndham Islamabad":
-                        hotelPrice = "40,000";
-                        break;
-                    case "Grand Regency Hotel":
-                        hotelPrice = "25,000";
-                        break;
-                    case "IFQ Hotel & Resort Islamabad":
-                        hotelPrice = "60,000";
-                        break;
-                    default:
-                        hotelPrice = "0";
-                        break;
-                }
-
+//
                 // Create an intent to start BookingTourActivity
                 Intent intent = new Intent(context, BookingTourActivity.class);
                 intent.putExtra("city_id", hotelsModel.getCity_id());
                 intent.putExtra("tourGuiderPrice", tourGuiderPrice);
                 intent.putExtra("vehiclePrice", vehiclePrice);
-                intent.putExtra("hotelPrice", hotelPrice);
+//                intent.putExtra("hotelPrice", hotelPrice);
                 startActivity(intent);
             }
         });
-
 
         tv_dir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,9 +137,13 @@ public class HotelDetailActivity extends AppCompatActivity {
 
         //getting data from previous activity
 
-
+        if (hotelsModel == null) {
+            hotelsModel = new SharedPref().getHotelDetails(context);
+        } else {
+            new SharedPref().saveHotelDetails(context, hotelsModel);
+        }
         if (hotelsModel.getImages() != null) {
-            ImagesSliderAdapter imagesSliderAdapter = new ImagesSliderAdapter(hotelsModel.getImages(), HotelDetailActivity.this);
+            ImagesSliderAdapter imagesSliderAdapter = new ImagesSliderAdapter(hotelsModel.getImages(), context);
             cardSliderViewPager.setAdapter(imagesSliderAdapter);
             tv_h_name.setText(hotelsModel.getName());
             tv_h_add.setText(hotelsModel.getAddress());
@@ -164,5 +155,4 @@ public class HotelDetailActivity extends AppCompatActivity {
             tv_h_double_room.setText(hotelsModel.getDouble_room());
         }
     }
-
 }

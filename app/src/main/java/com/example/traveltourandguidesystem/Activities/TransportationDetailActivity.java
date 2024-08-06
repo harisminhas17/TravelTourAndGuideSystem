@@ -27,7 +27,9 @@ public class TransportationDetailActivity extends AppCompatActivity {
     TextView tv_t_name, tv_t_type, tv_t_color, tv_t_p_n, tv_t_model, tv_t_done;
     ImageView back_5, notify_btn;
 
+
     TransporationModel transporationModel;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -36,6 +38,7 @@ public class TransportationDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transportation_detail);
         context = TransportationDetailActivity.this;
         getSupportActionBar().hide();
+        transporationModel = getIntent().getParcelableExtra("transportationmodel");
 
         back_5 = findViewById(R.id.back_5);
         notify_btn = findViewById(R.id.notify_btn);
@@ -68,35 +71,13 @@ public class TransportationDetailActivity extends AppCompatActivity {
                 String vehicleName = transporationModel.getVehicle_name();
                 tv_t_name.setText(vehicleName);
 
-                String price = "";
-                switch (vehicleName) {
-                    case "HondaCivic":
-                        price = "20,000";
-                        break;
-                    case "Toyota Landcruiser Prado":
-                        price = "30,000";
-                        break;
-                    case "Suzuki wagonR":
-                        price = "15,000";
-                        break;
-                    case "Toyota Land Cruiser v8":
-                        price = "40,000";
-                        break;
-                    case "Toyota prius":
-                        price = "25,000";
-                        break;
-                    default:
-                        price = "Price not available";
-                        break;
-                }
-
                 SharedPreferences tourGuidePrefs = getSharedPreferences("TourGuidePrefs", Context.MODE_PRIVATE);
                 String tourGuiderPrice = tourGuidePrefs.getString("tourGuiderPrice", "default_price");
 
                 // Get vehicle price
                 SharedPreferences transportPrefs = getSharedPreferences("TransportPrefs", Context.MODE_PRIVATE);
                 String vehiclePrice = transportPrefs.getString("vehiclePrice", "default_price");
-                Intent intent = new Intent(context, HotelsListActivity.class);
+                Intent intent = new Intent(context, HotelDetailActivity.class);
                 intent.putExtra("city_id", transporationModel.getCity_id());
                 intent.putExtra("tourGuiderPrice", tourGuiderPrice);
                 intent.putExtra("vehiclePrice", vehiclePrice);
@@ -104,11 +85,7 @@ public class TransportationDetailActivity extends AppCompatActivity {
             }
         });
 
-
         //getting data from previous activity
-
-        transporationModel = getIntent().getParcelableExtra("transportationmodel");
-
         if (transporationModel != null) {
             if (transporationModel.getVehicle_image() != null) {
                 ArrayList<ImageModel> images = new ArrayList<>();
@@ -122,6 +99,7 @@ public class TransportationDetailActivity extends AppCompatActivity {
                 tv_t_color.setText(transporationModel.getVehicle_color());
                 tv_t_p_n.setText(transporationModel.getVehicle_plate_number());
                 tv_t_model.setText(transporationModel.getVehicle_model());
+
             } else {
                 // Handle case where vehicle_image is null
                 // e.g., show a default image or a placeholder
